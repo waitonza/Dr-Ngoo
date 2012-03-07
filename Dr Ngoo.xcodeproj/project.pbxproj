@@ -13,6 +13,12 @@
 		030F4BF01507C2E200238A79 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 030F4BEE1507C2E200238A79 /* InfoPlist.strings */; };
 		030F4BF21507C2E200238A79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 030F4BF11507C2E200238A79 /* main.m */; };
 		030F4BF61507C2E200238A79 /* DrNgooAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 030F4BF51507C2E200238A79 /* DrNgooAppDelegate.m */; };
+		030F4C051507C5C900238A79 /* TabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C041507C5C900238A79 /* TabBarController.xib */; };
+		030F4C0D1507C8BD00238A79 /* 01-home.png in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C081507C8BD00238A79 /* 01-home.png */; };
+		030F4C0E1507C8BD00238A79 /* 02-magnify.png in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C091507C8BD00238A79 /* 02-magnify.png */; };
+		030F4C0F1507C8BD00238A79 /* 03-radar.png in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C0A1507C8BD00238A79 /* 03-radar.png */; };
+		030F4C101507C8BD00238A79 /* 04-medical-bag.png in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C0B1507C8BD00238A79 /* 04-medical-bag.png */; };
+		030F4C111507C8BD00238A79 /* 05-gear2.png in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C0C1507C8BD00238A79 /* 05-gear2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +32,12 @@
 		030F4BF31507C2E200238A79 /* Dr Ngoo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dr Ngoo-Prefix.pch"; sourceTree = "<group>"; };
 		030F4BF41507C2E200238A79 /* DrNgooAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrNgooAppDelegate.h; sourceTree = "<group>"; };
 		030F4BF51507C2E200238A79 /* DrNgooAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrNgooAppDelegate.m; sourceTree = "<group>"; };
+		030F4C041507C5C900238A79 /* TabBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabBarController.xib; sourceTree = "<group>"; };
+		030F4C081507C8BD00238A79 /* 01-home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-home.png"; sourceTree = "<group>"; };
+		030F4C091507C8BD00238A79 /* 02-magnify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02-magnify.png"; sourceTree = "<group>"; };
+		030F4C0A1507C8BD00238A79 /* 03-radar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03-radar.png"; sourceTree = "<group>"; };
+		030F4C0B1507C8BD00238A79 /* 04-medical-bag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "04-medical-bag.png"; sourceTree = "<group>"; };
+		030F4C0C1507C8BD00238A79 /* 05-gear2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "05-gear2.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,9 +84,11 @@
 		030F4BEB1507C2E200238A79 /* Dr Ngoo */ = {
 			isa = PBXGroup;
 			children = (
+				030F4C071507C8BD00238A79 /* TabBar Icon */,
 				030F4BF41507C2E200238A79 /* DrNgooAppDelegate.h */,
 				030F4BF51507C2E200238A79 /* DrNgooAppDelegate.m */,
 				030F4BEC1507C2E200238A79 /* Supporting Files */,
+				030F4C041507C5C900238A79 /* TabBarController.xib */,
 			);
 			path = "Dr Ngoo";
 			sourceTree = "<group>";
@@ -88,6 +102,18 @@
 				030F4BF31507C2E200238A79 /* Dr Ngoo-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		030F4C071507C8BD00238A79 /* TabBar Icon */ = {
+			isa = PBXGroup;
+			children = (
+				030F4C081507C8BD00238A79 /* 01-home.png */,
+				030F4C091507C8BD00238A79 /* 02-magnify.png */,
+				030F4C0A1507C8BD00238A79 /* 03-radar.png */,
+				030F4C0B1507C8BD00238A79 /* 04-medical-bag.png */,
+				030F4C0C1507C8BD00238A79 /* 05-gear2.png */,
+			);
+			path = "TabBar Icon";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +168,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				030F4BF01507C2E200238A79 /* InfoPlist.strings in Resources */,
+				030F4C051507C5C900238A79 /* TabBarController.xib in Resources */,
+				030F4C0D1507C8BD00238A79 /* 01-home.png in Resources */,
+				030F4C0E1507C8BD00238A79 /* 02-magnify.png in Resources */,
+				030F4C0F1507C8BD00238A79 /* 03-radar.png in Resources */,
+				030F4C101507C8BD00238A79 /* 04-medical-bag.png in Resources */,
+				030F4C111507C8BD00238A79 /* 05-gear2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +289,7 @@
 				030F4BFB1507C2E200238A79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

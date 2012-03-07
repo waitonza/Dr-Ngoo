@@ -11,5 +11,5 @@
 @interface DrNgooAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) IBOutlet UITabBarController *rootViewController;
 @end
