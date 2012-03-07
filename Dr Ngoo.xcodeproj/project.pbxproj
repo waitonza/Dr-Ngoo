@@ -1,0 +1,264 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		030F4BE61507C2E200238A79 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 030F4BE51507C2E200238A79 /* UIKit.framework */; };
+		030F4BE81507C2E200238A79 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 030F4BE71507C2E200238A79 /* Foundation.framework */; };
+		030F4BEA1507C2E200238A79 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 030F4BE91507C2E200238A79 /* CoreGraphics.framework */; };
+		030F4BF01507C2E200238A79 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 030F4BEE1507C2E200238A79 /* InfoPlist.strings */; };
+		030F4BF21507C2E200238A79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 030F4BF11507C2E200238A79 /* main.m */; };
+		030F4BF61507C2E200238A79 /* DrNgooAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 030F4BF51507C2E200238A79 /* DrNgooAppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		030F4BE11507C2E200238A79 /* Dr Ngoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dr Ngoo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		030F4BE51507C2E200238A79 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		030F4BE71507C2E200238A79 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		030F4BE91507C2E200238A79 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		030F4BED1507C2E200238A79 /* Dr Ngoo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Dr Ngoo-Info.plist"; sourceTree = "<group>"; };
+		030F4BEF1507C2E200238A79 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		030F4BF11507C2E200238A79 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		030F4BF31507C2E200238A79 /* Dr Ngoo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dr Ngoo-Prefix.pch"; sourceTree = "<group>"; };
+		030F4BF41507C2E200238A79 /* DrNgooAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrNgooAppDelegate.h; sourceTree = "<group>"; };
+		030F4BF51507C2E200238A79 /* DrNgooAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrNgooAppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		030F4BDE1507C2E200238A79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				030F4BE61507C2E200238A79 /* UIKit.framework in Frameworks */,
+				030F4BE81507C2E200238A79 /* Foundation.framework in Frameworks */,
+				030F4BEA1507C2E200238A79 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		030F4BD61507C2E200238A79 = {
+			isa = PBXGroup;
+			children = (
+				030F4BEB1507C2E200238A79 /* Dr Ngoo */,
+				030F4BE41507C2E200238A79 /* Frameworks */,
+				030F4BE21507C2E200238A79 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		030F4BE21507C2E200238A79 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				030F4BE11507C2E200238A79 /* Dr Ngoo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		030F4BE41507C2E200238A79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				030F4BE51507C2E200238A79 /* UIKit.framework */,
+				030F4BE71507C2E200238A79 /* Foundation.framework */,
+				030F4BE91507C2E200238A79 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		030F4BEB1507C2E200238A79 /* Dr Ngoo */ = {
+			isa = PBXGroup;
+			children = (
+				030F4BF41507C2E200238A79 /* DrNgooAppDelegate.h */,
+				030F4BF51507C2E200238A79 /* DrNgooAppDelegate.m */,
+				030F4BEC1507C2E200238A79 /* Supporting Files */,
+			);
+			path = "Dr Ngoo";
+			sourceTree = "<group>";
+		};
+		030F4BEC1507C2E200238A79 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				030F4BED1507C2E200238A79 /* Dr Ngoo-Info.plist */,
+				030F4BEE1507C2E200238A79 /* InfoPlist.strings */,
+				030F4BF11507C2E200238A79 /* main.m */,
+				030F4BF31507C2E200238A79 /* Dr Ngoo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		030F4BE01507C2E200238A79 /* Dr Ngoo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 030F4BF91507C2E200238A79 /* Build configuration list for PBXNativeTarget "Dr Ngoo" */;
+			buildPhases = (
+				030F4BDD1507C2E200238A79 /* Sources */,
+				030F4BDE1507C2E200238A79 /* Frameworks */,
+				030F4BDF1507C2E200238A79 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Dr Ngoo";
+			productName = "Dr Ngoo";
+			productReference = 030F4BE11507C2E200238A79 /* Dr Ngoo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		030F4BD81507C2E200238A79 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DrNgoo;
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 030F4BDB1507C2E200238A79 /* Build configuration list for PBXProject "Dr Ngoo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 030F4BD61507C2E200238A79;
+			productRefGroup = 030F4BE21507C2E200238A79 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				030F4BE01507C2E200238A79 /* Dr Ngoo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		030F4BDF1507C2E200238A79 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				030F4BF01507C2E200238A79 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		030F4BDD1507C2E200238A79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				030F4BF21507C2E200238A79 /* main.m in Sources */,
+				030F4BF61507C2E200238A79 /* DrNgooAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		030F4BEE1507C2E200238A79 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				030F4BEF1507C2E200238A79 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		030F4BF71507C2E200238A79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		030F4BF81507C2E200238A79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		030F4BFA1507C2E200238A79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Dr Ngoo/Dr Ngoo-Prefix.pch";
+				INFOPLIST_FILE = "Dr Ngoo/Dr Ngoo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		030F4BFB1507C2E200238A79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Dr Ngoo/Dr Ngoo-Prefix.pch";
+				INFOPLIST_FILE = "Dr Ngoo/Dr Ngoo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		030F4BDB1507C2E200238A79 /* Build configuration list for PBXProject "Dr Ngoo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				030F4BF71507C2E200238A79 /* Debug */,
+				030F4BF81507C2E200238A79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		030F4BF91507C2E200238A79 /* Build configuration list for PBXNativeTarget "Dr Ngoo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				030F4BFA1507C2E200238A79 /* Debug */,
+				030F4BFB1507C2E200238A79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 030F4BD81507C2E200238A79 /* Project object */;
+}
