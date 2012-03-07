@@ -19,6 +19,16 @@
 		030F4C0F1507C8BD00238A79 /* 03-radar.png in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C0A1507C8BD00238A79 /* 03-radar.png */; };
 		030F4C101507C8BD00238A79 /* 04-medical-bag.png in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C0B1507C8BD00238A79 /* 04-medical-bag.png */; };
 		030F4C111507C8BD00238A79 /* 05-gear2.png in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C0C1507C8BD00238A79 /* 05-gear2.png */; };
+		030F4C151507CB8400238A79 /* DrNgooHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030F4C131507CB8400238A79 /* DrNgooHomeViewController.m */; };
+		030F4C161507CB8400238A79 /* DrNgooHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C141507CB8400238A79 /* DrNgooHomeViewController.xib */; };
+		030F4C1F1507CBBF00238A79 /* DrNgooFinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030F4C1D1507CBBF00238A79 /* DrNgooFinderViewController.m */; };
+		030F4C201507CBBF00238A79 /* DrNgooFinderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C1E1507CBBF00238A79 /* DrNgooFinderViewController.xib */; };
+		030F4C291507CC1300238A79 /* DrNgooCureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030F4C271507CC1300238A79 /* DrNgooCureViewController.m */; };
+		030F4C2A1507CC1300238A79 /* DrNgooCureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C281507CC1300238A79 /* DrNgooCureViewController.xib */; };
+		030F4C2E1507CC2A00238A79 /* DrNgooOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030F4C2C1507CC2A00238A79 /* DrNgooOptionViewController.m */; };
+		030F4C2F1507CC2A00238A79 /* DrNgooOptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C2D1507CC2A00238A79 /* DrNgooOptionViewController.xib */; };
+		030F4C331507CD8C00238A79 /* DrNgooDatabaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030F4C311507CD8C00238A79 /* DrNgooDatabaseViewController.m */; };
+		030F4C341507CD8C00238A79 /* DrNgooDatabaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C321507CD8C00238A79 /* DrNgooDatabaseViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +48,21 @@
 		030F4C0A1507C8BD00238A79 /* 03-radar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03-radar.png"; sourceTree = "<group>"; };
 		030F4C0B1507C8BD00238A79 /* 04-medical-bag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "04-medical-bag.png"; sourceTree = "<group>"; };
 		030F4C0C1507C8BD00238A79 /* 05-gear2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "05-gear2.png"; sourceTree = "<group>"; };
+		030F4C121507CB8400238A79 /* DrNgooHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooHomeViewController.h; sourceTree = "<group>"; };
+		030F4C131507CB8400238A79 /* DrNgooHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooHomeViewController.m; sourceTree = "<group>"; };
+		030F4C141507CB8400238A79 /* DrNgooHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrNgooHomeViewController.xib; sourceTree = "<group>"; };
+		030F4C1C1507CBBF00238A79 /* DrNgooFinderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooFinderViewController.h; sourceTree = "<group>"; };
+		030F4C1D1507CBBF00238A79 /* DrNgooFinderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooFinderViewController.m; sourceTree = "<group>"; };
+		030F4C1E1507CBBF00238A79 /* DrNgooFinderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrNgooFinderViewController.xib; sourceTree = "<group>"; };
+		030F4C261507CC1300238A79 /* DrNgooCureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooCureViewController.h; sourceTree = "<group>"; };
+		030F4C271507CC1300238A79 /* DrNgooCureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooCureViewController.m; sourceTree = "<group>"; };
+		030F4C281507CC1300238A79 /* DrNgooCureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrNgooCureViewController.xib; sourceTree = "<group>"; };
+		030F4C2B1507CC2A00238A79 /* DrNgooOptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooOptionViewController.h; sourceTree = "<group>"; };
+		030F4C2C1507CC2A00238A79 /* DrNgooOptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooOptionViewController.m; sourceTree = "<group>"; };
+		030F4C2D1507CC2A00238A79 /* DrNgooOptionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrNgooOptionViewController.xib; sourceTree = "<group>"; };
+		030F4C301507CD8B00238A79 /* DrNgooDatabaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooDatabaseViewController.h; sourceTree = "<group>"; };
+		030F4C311507CD8C00238A79 /* DrNgooDatabaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooDatabaseViewController.m; sourceTree = "<group>"; };
+		030F4C321507CD8C00238A79 /* DrNgooDatabaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrNgooDatabaseViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +114,21 @@
 				030F4BF51507C2E200238A79 /* DrNgooAppDelegate.m */,
 				030F4BEC1507C2E200238A79 /* Supporting Files */,
 				030F4C041507C5C900238A79 /* TabBarController.xib */,
+				030F4C121507CB8400238A79 /* DrNgooHomeViewController.h */,
+				030F4C131507CB8400238A79 /* DrNgooHomeViewController.m */,
+				030F4C141507CB8400238A79 /* DrNgooHomeViewController.xib */,
+				030F4C1C1507CBBF00238A79 /* DrNgooFinderViewController.h */,
+				030F4C1D1507CBBF00238A79 /* DrNgooFinderViewController.m */,
+				030F4C1E1507CBBF00238A79 /* DrNgooFinderViewController.xib */,
+				030F4C301507CD8B00238A79 /* DrNgooDatabaseViewController.h */,
+				030F4C311507CD8C00238A79 /* DrNgooDatabaseViewController.m */,
+				030F4C321507CD8C00238A79 /* DrNgooDatabaseViewController.xib */,
+				030F4C261507CC1300238A79 /* DrNgooCureViewController.h */,
+				030F4C271507CC1300238A79 /* DrNgooCureViewController.m */,
+				030F4C281507CC1300238A79 /* DrNgooCureViewController.xib */,
+				030F4C2B1507CC2A00238A79 /* DrNgooOptionViewController.h */,
+				030F4C2C1507CC2A00238A79 /* DrNgooOptionViewController.m */,
+				030F4C2D1507CC2A00238A79 /* DrNgooOptionViewController.xib */,
 			);
 			path = "Dr Ngoo";
 			sourceTree = "<group>";
@@ -174,6 +214,11 @@
 				030F4C0F1507C8BD00238A79 /* 03-radar.png in Resources */,
 				030F4C101507C8BD00238A79 /* 04-medical-bag.png in Resources */,
 				030F4C111507C8BD00238A79 /* 05-gear2.png in Resources */,
+				030F4C161507CB8400238A79 /* DrNgooHomeViewController.xib in Resources */,
+				030F4C201507CBBF00238A79 /* DrNgooFinderViewController.xib in Resources */,
+				030F4C2A1507CC1300238A79 /* DrNgooCureViewController.xib in Resources */,
+				030F4C2F1507CC2A00238A79 /* DrNgooOptionViewController.xib in Resources */,
+				030F4C341507CD8C00238A79 /* DrNgooDatabaseViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,6 +231,11 @@
 			files = (
 				030F4BF21507C2E200238A79 /* main.m in Sources */,
 				030F4BF61507C2E200238A79 /* DrNgooAppDelegate.m in Sources */,
+				030F4C151507CB8400238A79 /* DrNgooHomeViewController.m in Sources */,
+				030F4C1F1507CBBF00238A79 /* DrNgooFinderViewController.m in Sources */,
+				030F4C291507CC1300238A79 /* DrNgooCureViewController.m in Sources */,
+				030F4C2E1507CC2A00238A79 /* DrNgooOptionViewController.m in Sources */,
+				030F4C331507CD8C00238A79 /* DrNgooDatabaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
