@@ -29,6 +29,9 @@
 		030F4C2F1507CC2A00238A79 /* DrNgooOptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C2D1507CC2A00238A79 /* DrNgooOptionViewController.xib */; };
 		030F4C331507CD8C00238A79 /* DrNgooDatabaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030F4C311507CD8C00238A79 /* DrNgooDatabaseViewController.m */; };
 		030F4C341507CD8C00238A79 /* DrNgooDatabaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C321507CD8C00238A79 /* DrNgooDatabaseViewController.xib */; };
+		0310DD0B150857A300094742 /* 33-cabinet.png in Resources */ = {isa = PBXBuildFile; fileRef = 0310DD08150857A300094742 /* 33-cabinet.png */; };
+		0310DD0C150857A300094742 /* 96-book.png in Resources */ = {isa = PBXBuildFile; fileRef = 0310DD09150857A300094742 /* 96-book.png */; };
+		0310DD0D150857A300094742 /* 179-notepad.png in Resources */ = {isa = PBXBuildFile; fileRef = 0310DD0A150857A300094742 /* 179-notepad.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +66,9 @@
 		030F4C301507CD8B00238A79 /* DrNgooDatabaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooDatabaseViewController.h; sourceTree = "<group>"; };
 		030F4C311507CD8C00238A79 /* DrNgooDatabaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooDatabaseViewController.m; sourceTree = "<group>"; };
 		030F4C321507CD8C00238A79 /* DrNgooDatabaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrNgooDatabaseViewController.xib; sourceTree = "<group>"; };
+		0310DD08150857A300094742 /* 33-cabinet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "33-cabinet.png"; sourceTree = "<group>"; };
+		0310DD09150857A300094742 /* 96-book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "96-book.png"; sourceTree = "<group>"; };
+		0310DD0A150857A300094742 /* 179-notepad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "179-notepad.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +158,9 @@
 				030F4C0A1507C8BD00238A79 /* 03-radar.png */,
 				030F4C0B1507C8BD00238A79 /* 04-medical-bag.png */,
 				030F4C0C1507C8BD00238A79 /* 05-gear2.png */,
+				0310DD08150857A300094742 /* 33-cabinet.png */,
+				0310DD09150857A300094742 /* 96-book.png */,
+				0310DD0A150857A300094742 /* 179-notepad.png */,
 			);
 			path = "TabBar Icon";
 			sourceTree = "<group>";
@@ -219,6 +228,9 @@
 				030F4C2A1507CC1300238A79 /* DrNgooCureViewController.xib in Resources */,
 				030F4C2F1507CC2A00238A79 /* DrNgooOptionViewController.xib in Resources */,
 				030F4C341507CD8C00238A79 /* DrNgooDatabaseViewController.xib in Resources */,
+				0310DD0B150857A300094742 /* 33-cabinet.png in Resources */,
+				0310DD0C150857A300094742 /* 96-book.png in Resources */,
+				0310DD0D150857A300094742 /* 179-notepad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
