@@ -15,7 +15,7 @@
 #import <sqlite3.h>
 
 #define kFileDBname             @"data.sqlite3"
-#define kFileSettingname        @"data.plist"
+#define kFileSettingname        @"setting.plist"
 
 @implementation DrNgooAppDelegate
 
@@ -137,7 +137,7 @@
     fourthNavController.tabBarItem.image = [UIImage imageNamed:@"04-medical-bag.png"];
     fourthNavController.tabBarItem.title = @"ปฐมพยาบาล";
     
-    fifthNavController.tabBarItem.image = [UIImage imageNamed:@"05-gear2.png"];
+    fifthNavController.tabBarItem.image = [UIImage imageNamed:@"info_30.png"];
     fifthNavController.tabBarItem.title = @"เพิ่มเติม";
     
     [self.window addSubview:rootViewController.view];

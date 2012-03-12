@@ -7,12 +7,31 @@
 //
 
 #import "DrNgooFinderViewController.h"
+#import "NSDictionary-MutableDeepCopy.h"
+#import "DrNgooCheckListViewController.h"
 
 @interface DrNgooFinderViewController ()
-
+@property (strong, nonatomic) DrNgooCheckListViewController *childController;
 @end
 
 @implementation DrNgooFinderViewController
+
+@synthesize allNames;
+@synthesize names;
+@synthesize keys;
+@synthesize colors;
+@synthesize bodyShapes;
+@synthesize headShapes;
+@synthesize bodyTextiles;
+@synthesize specials;
+@synthesize color;
+@synthesize bodyShape;
+@synthesize headShape;
+@synthesize bodyTextile;
+@synthesize special;
+@synthesize posion;
+@synthesize poisons;
+@synthesize childController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,12 +45,35 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"FinderList"
+                                                     ofType:@"plist"];
+    NSDictionary *dict = [[NSDictionary alloc]initWithContentsOfFile:path];
+    self.allNames = dict;
+    
+    self.names = [self.allNames copy];
+    NSMutableArray *keyArray = [[NSMutableArray alloc] init];
+    [keyArray addObjectsFromArray:[[self.allNames allKeys]
+                                   sortedArrayUsingSelector:@selector(compare:)]];
+    self.keys = keyArray;
+
+    self.colors = [[NSArray alloc] initWithObjects:@"Brown",@"Green",@"Black",@"Yellow",@"Black and Yellow",@"Black and White",nil];
+    self.bodyShapes = [[NSArray alloc] initWithObjects:@"Slim",@"Fat",@"Triangle",nil];
+    self.headShapes = [[NSArray alloc] initWithObjects:@"Hood",@"Flat",@"Triangle", nil];
+    self.bodyTextiles = [[NSArray alloc] initWithObjects:@"None",@"Segments",@"Spots",@"Triangles",@"Smooth",@"Long Stripes",@"Cross",@"Large Spots", nil];
+    self.specials = [[NSArray alloc] initWithObjects:@"Occipital scales",@"Asterisk textile",@"Blunt tail",@"Hissing",@"Brown-red tail",@"Big yellow eyes",@"Glossy",@"Big eyed",@"Yellow head", nil];
+    self.poisons = [[NSArray alloc] initWithObjects:@"Yes",@"No", nil];
+    self.color = @"ไม่ถูกเลือก";
+    self.bodyShape = @"ไม่ถูกเลือก";
+    self.headShape = @"ไม่ถูกเลือก";
+    self.bodyTextile = @"ไม่ถูกเลือก";
+    self.special = @"ไม่ถูกเลือก";
+    self.posion = NO;
 }
 
 - (void)viewDidUnload
@@ -39,77 +81,119 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.allNames = nil;
+    self.names = nil;
+    self.keys = nil;
+
+    self.colors = nil;
+    self.bodyShapes = nil;
+    self.headShapes = nil;
+    self.bodyTextiles = nil;
+    self.specials = nil;
+    self.color = nil;
+    self.bodyShape = nil;
+    self.headShape = nil;
+    self.bodyTextile = nil;
+    self.special = nil;
+    
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    if (childController != nil) {
+        NSIndexPath *index = childController.lastIndexPath;
+        NSUInteger row = [index row];
+        if (childController.list == self.colors)
+            self.color = [colors objectAtIndex:row];
+        else if (childController.list == self.bodyShapes)
+            self.bodyShape = [bodyShapes objectAtIndex:row];
+        else if (childController.list == self.headShapes)
+            self.headShape = [headShapes objectAtIndex:row];
+        else if (childController.list == self.bodyTextiles)
+            self.bodyTextile = [bodyTextiles objectAtIndex:row];
+        else if (childController.list == self.specials)
+            self.special = [specials objectAtIndex:row];
+        else if (childController.list == self.poisons)
+            self.posion = [[poisons objectAtIndex:row] boolValue]; 
+        UITableView *table = [self tableView];
+        [table reloadData];
+    }
+}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return NO;
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return ([keys count] > 0) ? [keys count] : 1;	
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    if ([keys count] == 0)
+        return 0;
+    NSString *key = [keys objectAtIndex:section];
+    NSArray *nameSection = [names objectForKey:key];
+    return [nameSection count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    NSUInteger section = [indexPath section];
+    NSUInteger row = [indexPath row];
     
-    // Configure the cell...
+    NSString *key = [keys objectAtIndex:section];
+    NSArray *nameSection = [names objectForKey:key];
     
+    static NSString *SectionsTableIdentifier = @"SectionsTableIdentifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
+                             SectionsTableIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]
+                initWithStyle:UITableViewCellStyleValue1
+                reuseIdentifier:SectionsTableIdentifier];
+    }
+    
+    cell.textLabel.text = [nameSection objectAtIndex:row];
+    if (section == 0) {
+        if (row == 0) 
+            cell.detailTextLabel.text = self.color;
+        else if (row == 1) 
+            cell.detailTextLabel.text = self.bodyShape;
+        else if (row == 2) 
+            cell.detailTextLabel.text = self.headShape;
+        else if (row == 3) 
+            cell.detailTextLabel.text = self.bodyTextile;
+        else if (row == 4) 
+            cell.detailTextLabel.text = self.special;
+    } else {
+        if (posion) {
+            cell.detailTextLabel.text = @"มีพิษ";
+        } else {
+            cell.detailTextLabel.text = @"ไม่มีพิษ";
+        }
+    }
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
+
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (NSString *)tableView:(UITableView *)tableView
+titleForHeaderInSection:(NSInteger)section {
+    if ([keys count] == 0)
+        return nil;
+    
+    NSString *key = [keys objectAtIndex:section];
+    if (key == UITableViewIndexSearch)
+        return nil;
+    return key;
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
@@ -122,6 +206,52 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    if (childController == nil) {
+        childController = [[DrNgooCheckListViewController alloc] initWithStyle:UITableViewStylePlain];
+    }
+    NSUInteger section = [indexPath section];
+    NSUInteger row = [indexPath row];
+    
+    NSString *key = [keys objectAtIndex:section];
+    NSArray *nameSection = [names objectForKey:key];
+    childController.title = [nameSection objectAtIndex:row];
+    int rowfound;
+    if (section == 0) {
+        if (row == 0) {
+            childController.list = self.colors;
+            rowfound = [self.colors indexOfObject:self.color];        
+        }
+        else if (row == 1) {
+            childController.list = self.bodyShapes;
+            rowfound = [self.bodyShapes indexOfObject:self.bodyShape];
+        }
+        else if (row == 2) {
+            childController.list = self.headShapes;
+            rowfound = [self.headShapes indexOfObject:self.headShape];
+        }
+        else if (row == 3) {
+            childController.list = self.bodyTextiles;
+            rowfound = [self.bodyTextiles indexOfObject:self.bodyTextile];
+        }
+        else if (row == 4) {
+            childController.list = self.specials;
+            rowfound = [self.specials indexOfObject:self.special];
+        }
+    } else {
+        childController.list = self.poisons;
+        NSString *str = self.posion ? @"Yes" : @"No";
+        rowfound = [self.poisons indexOfObject:str];
+    }
+    
+    if (rowfound != NSNotFound) {
+        childController.lastIndexPath = [NSIndexPath indexPathForRow:rowfound inSection:0];
+    } else {
+        childController.lastIndexPath = nil;
+    }
+
+    [self.navigationController pushViewController:childController
+                                         animated:YES];
+
 }
 
 @end

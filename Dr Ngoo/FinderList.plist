@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>คุณลักษณะ</key>
+	<array>
+		<string>สี</string>
+		<string>ลักษณะตัว</string>
+		<string>ลักษณะหัว</string>
+		<string>ลายของตัว</string>
+		<string>พิเศษ</string>
+	</array>
+	<key>พิษ</key>
+	<array>
+		<string>พิษของงู</string>
+	</array>
+</dict>
+</plist>

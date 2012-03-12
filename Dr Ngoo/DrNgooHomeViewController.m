@@ -21,9 +21,9 @@
     if (button.tag == 0) {
         [tabbar setSelectedIndex:1];
     } else if (button.tag == 1) {
-        [tabbar setSelectedIndex:2];
-    } else if (button.tag == 2) {
         [tabbar setSelectedIndex:3];
+    } else if (button.tag == 2) {
+        [tabbar setSelectedIndex:2];
     } else {
         [tabbar setSelectedIndex:4];
     }
@@ -56,7 +56,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return NO;
 }
 
 @end

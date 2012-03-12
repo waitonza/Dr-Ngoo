@@ -10,4 +10,11 @@
 
 @interface DrNgooOptionViewController : UITableViewController
 
+@property (strong, nonatomic) NSDictionary *allNames;
+@property (strong, nonatomic) NSMutableDictionary *names;
+@property (strong, nonatomic) NSMutableArray *keys;
+
+@property (strong, nonatomic) NSString *progVer;
+@property (strong, nonatomic) NSString *dbVer;
+
 @end

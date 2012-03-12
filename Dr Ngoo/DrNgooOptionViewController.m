@@ -8,11 +8,25 @@
 
 #import "DrNgooOptionViewController.h"
 
+#define kFileSettingname        @"setting.plist"
+
 @interface DrNgooOptionViewController ()
 
 @end
 
 @implementation DrNgooOptionViewController
+@synthesize allNames;
+@synthesize names;
+@synthesize keys;
+@synthesize dbVer;
+@synthesize progVer;
+
+
+- (NSString *)dataFileSettingPath {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    return [documentsDirectory stringByAppendingPathComponent:kFileSettingname];
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -27,11 +41,24 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"OptionList"
+                                                     ofType:@"plist"];
+    NSDictionary *dict = [[NSDictionary alloc]initWithContentsOfFile:path];
+    self.allNames = dict;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.names = [self.allNames copy];
+    NSMutableArray *keyArray = [[NSMutableArray alloc] init];
+    [keyArray addObjectsFromArray:[[self.allNames allKeys]
+                                   sortedArrayUsingSelector:@selector(compare:)]];
+    self.keys = keyArray;
+    
+    self.progVer = @"V. 0.1 Beta";
+    
+    dbVer = @"V. ";
+    NSString *filePath = [self dataFileSettingPath];
+    NSMutableDictionary *settingInfo = [NSMutableDictionary dictionaryWithContentsOfFile:filePath];
+    self.dbVer = [dbVer stringByAppendingString:[settingInfo objectForKey:@"DBVersion"]];
+    
 }
 
 - (void)viewDidUnload
@@ -39,6 +66,10 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.allNames = nil;
+    self.names = nil;
+    self.keys = nil;
+
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -50,66 +81,62 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return ([keys count] > 0) ? [keys count] : 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    if ([keys count] == 0)
+        return 0;
+    NSString *key = [keys objectAtIndex:section];
+    NSArray *nameSection = [names objectForKey:key];
+    return [nameSection count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    NSUInteger section = [indexPath section];
+    NSUInteger row = [indexPath row];
     
-    // Configure the cell...
+    NSString *key = [keys objectAtIndex:section];
+    NSArray *nameSection = [names objectForKey:key];
     
+    static NSString *SectionsTableIdentifier = @"SectionsTableIdentifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
+                             SectionsTableIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]
+                initWithStyle:UITableViewCellStyleValue1
+                reuseIdentifier:SectionsTableIdentifier];
+    }
+    
+    cell.textLabel.text = [nameSection objectAtIndex:row];
+    if (section == 0) {
+        if (row == 0) {
+            cell.detailTextLabel.text = progVer;
+        } else if (row == 1) {
+            cell.detailTextLabel.text = dbVer;
+        } else if (row == 2) {
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        } 
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
     return cell;
 }
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
- }   
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }   
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
+- (NSString *)tableView:(UITableView *)tableView
+titleForHeaderInSection:(NSInteger)section {
+    if ([keys count] == 0)
+        return nil;
+    
+    NSString *key = [keys objectAtIndex:section];
+    if (key == UITableViewIndexSearch)
+        return nil;
+    return key;
+}
 
 #pragma mark - Table view delegate
 

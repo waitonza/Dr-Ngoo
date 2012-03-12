@@ -10,4 +10,23 @@
 
 @interface DrNgooFinderViewController : UITableViewController
 
+@property (strong, nonatomic) NSDictionary *allNames;
+@property (strong, nonatomic) NSMutableDictionary *names;
+@property (strong, nonatomic) NSMutableArray *keys;
+
+@property (strong, nonatomic) NSArray *colors;
+@property (strong, nonatomic) NSArray *bodyShapes;
+@property (strong, nonatomic) NSArray *headShapes;
+@property (strong, nonatomic) NSArray *bodyTextiles;
+@property (strong, nonatomic) NSArray *specials;
+@property (strong, nonatomic) NSArray *poisons;
+
+@property (strong, nonatomic) NSString *color;
+@property (strong, nonatomic) NSString *bodyShape;
+@property (strong, nonatomic) NSString *headShape;
+@property (strong, nonatomic) NSString *bodyTextile;
+@property (strong, nonatomic) NSString *special;
+
+@property (assign, nonatomic) BOOL posion;
+
 @end

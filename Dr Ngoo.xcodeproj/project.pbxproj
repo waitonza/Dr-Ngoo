@@ -28,6 +28,10 @@
 		0310DD0B150857A300094742 /* 33-cabinet.png in Resources */ = {isa = PBXBuildFile; fileRef = 0310DD08150857A300094742 /* 33-cabinet.png */; };
 		0310DD0C150857A300094742 /* 96-book.png in Resources */ = {isa = PBXBuildFile; fileRef = 0310DD09150857A300094742 /* 96-book.png */; };
 		0310DD0D150857A300094742 /* 179-notepad.png in Resources */ = {isa = PBXBuildFile; fileRef = 0310DD0A150857A300094742 /* 179-notepad.png */; };
+		0328D564150E564300091186 /* DrNgooCheckListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0328D563150E564300091186 /* DrNgooCheckListViewController.m */; };
+		0328D56E150E76D300091186 /* OptionList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0328D56D150E76D300091186 /* OptionList.plist */; };
+		03855845150E3BFB00CD1A51 /* info_30.png in Resources */ = {isa = PBXBuildFile; fileRef = 03855844150E3BFB00CD1A51 /* info_30.png */; };
+		0385584E150E4A8400CD1A51 /* FinderList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0385584D150E4A8400CD1A51 /* FinderList.plist */; };
 		03C1F1BE150D98BF00CED02D /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C1F1BD150D98BF00CED02D /* libsqlite3.0.dylib */; };
 		03C1F20A150E01CF00CED02D /* DrNgooFinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C1F208150E01CE00CED02D /* DrNgooFinderViewController.m */; };
 /* End PBXBuildFile section */
@@ -62,6 +66,13 @@
 		0310DD08150857A300094742 /* 33-cabinet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "33-cabinet.png"; sourceTree = "<group>"; };
 		0310DD09150857A300094742 /* 96-book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "96-book.png"; sourceTree = "<group>"; };
 		0310DD0A150857A300094742 /* 179-notepad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "179-notepad.png"; sourceTree = "<group>"; };
+		0328D557150E4D6C00091186 /* NSDictionary-MutableDeepCopy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary-MutableDeepCopy.h"; sourceTree = "<group>"; };
+		0328D558150E4D6C00091186 /* NSDictionary-MutableDeepCopy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary-MutableDeepCopy.m"; sourceTree = "<group>"; };
+		0328D562150E564200091186 /* DrNgooCheckListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooCheckListViewController.h; sourceTree = "<group>"; };
+		0328D563150E564300091186 /* DrNgooCheckListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooCheckListViewController.m; sourceTree = "<group>"; };
+		0328D56D150E76D300091186 /* OptionList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = OptionList.plist; sourceTree = "<group>"; };
+		03855844150E3BFB00CD1A51 /* info_30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_30.png; sourceTree = "<group>"; };
+		0385584D150E4A8400CD1A51 /* FinderList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FinderList.plist; sourceTree = "<group>"; };
 		03C1F1BD150D98BF00CED02D /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		03C1F207150E01CE00CED02D /* DrNgooFinderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooFinderViewController.h; sourceTree = "<group>"; };
 		03C1F208150E01CE00CED02D /* DrNgooFinderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooFinderViewController.m; sourceTree = "<group>"; };
@@ -130,6 +141,12 @@
 				030F4C281507CC1300238A79 /* DrNgooCureViewController.xib */,
 				030F4C2B1507CC2A00238A79 /* DrNgooOptionViewController.h */,
 				030F4C2C1507CC2A00238A79 /* DrNgooOptionViewController.m */,
+				0328D557150E4D6C00091186 /* NSDictionary-MutableDeepCopy.h */,
+				0328D558150E4D6C00091186 /* NSDictionary-MutableDeepCopy.m */,
+				0385584D150E4A8400CD1A51 /* FinderList.plist */,
+				0328D562150E564200091186 /* DrNgooCheckListViewController.h */,
+				0328D563150E564300091186 /* DrNgooCheckListViewController.m */,
+				0328D56D150E76D300091186 /* OptionList.plist */,
 			);
 			path = "Dr Ngoo";
 			sourceTree = "<group>";
@@ -151,6 +168,7 @@
 				030F4C081507C8BD00238A79 /* 01-home.png */,
 				030F4C091507C8BD00238A79 /* 02-magnify.png */,
 				030F4C0A1507C8BD00238A79 /* 03-radar.png */,
+				03855844150E3BFB00CD1A51 /* info_30.png */,
 				030F4C0B1507C8BD00238A79 /* 04-medical-bag.png */,
 				030F4C0C1507C8BD00238A79 /* 05-gear2.png */,
 				0310DD08150857A300094742 /* 33-cabinet.png */,
@@ -223,6 +241,9 @@
 				0310DD0B150857A300094742 /* 33-cabinet.png in Resources */,
 				0310DD0C150857A300094742 /* 96-book.png in Resources */,
 				0310DD0D150857A300094742 /* 179-notepad.png in Resources */,
+				03855845150E3BFB00CD1A51 /* info_30.png in Resources */,
+				0385584E150E4A8400CD1A51 /* FinderList.plist in Resources */,
+				0328D56E150E76D300091186 /* OptionList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +261,7 @@
 				030F4C2E1507CC2A00238A79 /* DrNgooOptionViewController.m in Sources */,
 				030F4C331507CD8C00238A79 /* DrNgooDatabaseViewController.m in Sources */,
 				03C1F20A150E01CF00CED02D /* DrNgooFinderViewController.m in Sources */,
+				0328D564150E564300091186 /* DrNgooCheckListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
