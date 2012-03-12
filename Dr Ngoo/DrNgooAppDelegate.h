@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DrNgooAppDelegate : UIResponder <UIApplicationDelegate>
+@interface DrNgooAppDelegate : UIResponder <UIApplicationDelegate> {
+    
+}
+
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) IBOutlet UITabBarController *rootViewController;
+@property (strong, nonatomic) UITabBarController *rootViewController;
+@property (strong, nonatomic) NSMutableDictionary *settingInfo;
+- (NSString *)dataFileDBPath;
+- (NSString *)dataFileSettingPath;
 @end

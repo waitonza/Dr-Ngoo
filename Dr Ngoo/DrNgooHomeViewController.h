@@ -10,4 +10,6 @@
 
 @interface DrNgooHomeViewController : UIViewController
 
+-(IBAction)buttonPressed:(id)sender;
+
 @end

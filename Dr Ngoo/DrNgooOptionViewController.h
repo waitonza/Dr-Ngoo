@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DrNgooOptionViewController : UIViewController
+@interface DrNgooOptionViewController : UITableViewController
 
 @end
