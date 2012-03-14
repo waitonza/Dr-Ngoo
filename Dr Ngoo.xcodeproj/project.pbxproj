@@ -18,12 +18,13 @@
 		030F4C291507CC1300238A79 /* DrNgooCureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030F4C271507CC1300238A79 /* DrNgooCureViewController.m */; };
 		030F4C2A1507CC1300238A79 /* DrNgooCureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C281507CC1300238A79 /* DrNgooCureViewController.xib */; };
 		030F4C2E1507CC2A00238A79 /* DrNgooOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030F4C2C1507CC2A00238A79 /* DrNgooOptionViewController.m */; };
-		030F4C331507CD8C00238A79 /* DrNgooDatabaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030F4C311507CD8C00238A79 /* DrNgooDatabaseViewController.m */; };
-		030F4C341507CD8C00238A79 /* DrNgooDatabaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C321507CD8C00238A79 /* DrNgooDatabaseViewController.xib */; };
+		0321087A151051A7001F3391 /* DrNgooDatabaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03210878151051A7001F3391 /* DrNgooDatabaseViewController.m */; };
+		0321087B151051A7001F3391 /* DrNgooDatabaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03210879151051A7001F3391 /* DrNgooDatabaseViewController.xib */; };
 		0328D564150E564300091186 /* DrNgooCheckListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0328D563150E564300091186 /* DrNgooCheckListViewController.m */; };
 		0328D56E150E76D300091186 /* OptionList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0328D56D150E76D300091186 /* OptionList.plist */; };
 		0328D570150E7DC100091186 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0328D56F150E7DC100091186 /* SystemConfiguration.framework */; };
 		0385584E150E4A8400CD1A51 /* FinderList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0385584D150E4A8400CD1A51 /* FinderList.plist */; };
+		03ADA33E15107E680049CE71 /* thumb_s1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ADA33D15107E680049CE71 /* thumb_s1.png */; };
 		03C1F1BE150D98BF00CED02D /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C1F1BD150D98BF00CED02D /* libsqlite3.0.dylib */; };
 		03C1F20A150E01CF00CED02D /* DrNgooFinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C1F208150E01CE00CED02D /* DrNgooFinderViewController.m */; };
 		03C5DD59151045F900D8AA97 /* DrNgooSnakeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C5DD58151045F900D8AA97 /* DrNgooSnakeCell.m */; };
@@ -38,6 +39,7 @@
 		03C5DD701510475000D8AA97 /* 96-book.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C5DD651510475000D8AA97 /* 96-book.png */; };
 		03C5DD711510475000D8AA97 /* info_30.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C5DD661510475000D8AA97 /* info_30.png */; };
 		03C5DD721510475000D8AA97 /* whiteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C5DD671510475000D8AA97 /* whiteButton.png */; };
+		03C5DD741510484600D8AA97 /* DrNgooSnakeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C5DD731510484600D8AA97 /* DrNgooSnakeCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,9 +61,9 @@
 		030F4C281507CC1300238A79 /* DrNgooCureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrNgooCureViewController.xib; sourceTree = "<group>"; };
 		030F4C2B1507CC2A00238A79 /* DrNgooOptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooOptionViewController.h; sourceTree = "<group>"; };
 		030F4C2C1507CC2A00238A79 /* DrNgooOptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooOptionViewController.m; sourceTree = "<group>"; };
-		030F4C301507CD8B00238A79 /* DrNgooDatabaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooDatabaseViewController.h; sourceTree = "<group>"; };
-		030F4C311507CD8C00238A79 /* DrNgooDatabaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooDatabaseViewController.m; sourceTree = "<group>"; };
-		030F4C321507CD8C00238A79 /* DrNgooDatabaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrNgooDatabaseViewController.xib; sourceTree = "<group>"; };
+		03210877151051A7001F3391 /* DrNgooDatabaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooDatabaseViewController.h; sourceTree = "<group>"; };
+		03210878151051A7001F3391 /* DrNgooDatabaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooDatabaseViewController.m; sourceTree = "<group>"; };
+		03210879151051A7001F3391 /* DrNgooDatabaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrNgooDatabaseViewController.xib; sourceTree = "<group>"; };
 		0328D557150E4D6C00091186 /* NSDictionary-MutableDeepCopy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary-MutableDeepCopy.h"; sourceTree = "<group>"; };
 		0328D558150E4D6C00091186 /* NSDictionary-MutableDeepCopy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary-MutableDeepCopy.m"; sourceTree = "<group>"; };
 		0328D562150E564200091186 /* DrNgooCheckListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooCheckListViewController.h; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 		0328D571150E7E2F00091186 /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		0328D572150E7E2F00091186 /* Reachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		0385584D150E4A8400CD1A51 /* FinderList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FinderList.plist; sourceTree = "<group>"; };
+		03ADA33D15107E680049CE71 /* thumb_s1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumb_s1.png; sourceTree = "<group>"; };
 		03C1F1BD150D98BF00CED02D /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		03C1F207150E01CE00CED02D /* DrNgooFinderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooFinderViewController.h; sourceTree = "<group>"; };
 		03C1F208150E01CE00CED02D /* DrNgooFinderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooFinderViewController.m; sourceTree = "<group>"; };
@@ -87,6 +90,7 @@
 		03C5DD651510475000D8AA97 /* 96-book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "96-book.png"; sourceTree = "<group>"; };
 		03C5DD661510475000D8AA97 /* info_30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_30.png; sourceTree = "<group>"; };
 		03C5DD671510475000D8AA97 /* whiteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteButton.png; sourceTree = "<group>"; };
+		03C5DD731510484600D8AA97 /* DrNgooSnakeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrNgooSnakeCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,9 +152,6 @@
 				030F4C141507CB8400238A79 /* DrNgooHomeViewController.xib */,
 				03C1F207150E01CE00CED02D /* DrNgooFinderViewController.h */,
 				03C1F208150E01CE00CED02D /* DrNgooFinderViewController.m */,
-				030F4C301507CD8B00238A79 /* DrNgooDatabaseViewController.h */,
-				030F4C311507CD8C00238A79 /* DrNgooDatabaseViewController.m */,
-				030F4C321507CD8C00238A79 /* DrNgooDatabaseViewController.xib */,
 				030F4C261507CC1300238A79 /* DrNgooCureViewController.h */,
 				030F4C271507CC1300238A79 /* DrNgooCureViewController.m */,
 				030F4C281507CC1300238A79 /* DrNgooCureViewController.xib */,
@@ -164,6 +165,10 @@
 				0328D56D150E76D300091186 /* OptionList.plist */,
 				03C5DD57151045F900D8AA97 /* DrNgooSnakeCell.h */,
 				03C5DD58151045F900D8AA97 /* DrNgooSnakeCell.m */,
+				03C5DD731510484600D8AA97 /* DrNgooSnakeCell.xib */,
+				03210877151051A7001F3391 /* DrNgooDatabaseViewController.h */,
+				03210878151051A7001F3391 /* DrNgooDatabaseViewController.m */,
+				03210879151051A7001F3391 /* DrNgooDatabaseViewController.xib */,
 			);
 			path = "Dr Ngoo";
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 		03C5DD5C1510475000D8AA97 /* SnakePicture */ = {
 			isa = PBXGroup;
 			children = (
+				03ADA33D15107E680049CE71 /* thumb_s1.png */,
 			);
 			path = SnakePicture;
 			sourceTree = "<group>";
@@ -267,7 +273,6 @@
 				030F4BF01507C2E200238A79 /* InfoPlist.strings in Resources */,
 				030F4C161507CB8400238A79 /* DrNgooHomeViewController.xib in Resources */,
 				030F4C2A1507CC1300238A79 /* DrNgooCureViewController.xib in Resources */,
-				030F4C341507CD8C00238A79 /* DrNgooDatabaseViewController.xib in Resources */,
 				0385584E150E4A8400CD1A51 /* FinderList.plist in Resources */,
 				0328D56E150E76D300091186 /* OptionList.plist in Resources */,
 				03C5DD681510475000D8AA97 /* blueButton.png in Resources */,
@@ -281,6 +286,9 @@
 				03C5DD701510475000D8AA97 /* 96-book.png in Resources */,
 				03C5DD711510475000D8AA97 /* info_30.png in Resources */,
 				03C5DD721510475000D8AA97 /* whiteButton.png in Resources */,
+				03C5DD741510484600D8AA97 /* DrNgooSnakeCell.xib in Resources */,
+				0321087B151051A7001F3391 /* DrNgooDatabaseViewController.xib in Resources */,
+				03ADA33E15107E680049CE71 /* thumb_s1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,10 +304,10 @@
 				030F4C151507CB8400238A79 /* DrNgooHomeViewController.m in Sources */,
 				030F4C291507CC1300238A79 /* DrNgooCureViewController.m in Sources */,
 				030F4C2E1507CC2A00238A79 /* DrNgooOptionViewController.m in Sources */,
-				030F4C331507CD8C00238A79 /* DrNgooDatabaseViewController.m in Sources */,
 				03C1F20A150E01CF00CED02D /* DrNgooFinderViewController.m in Sources */,
 				0328D564150E564300091186 /* DrNgooCheckListViewController.m in Sources */,
 				03C5DD59151045F900D8AA97 /* DrNgooSnakeCell.m in Sources */,
+				0321087A151051A7001F3391 /* DrNgooDatabaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

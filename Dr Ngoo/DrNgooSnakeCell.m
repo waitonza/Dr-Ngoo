@@ -9,6 +9,10 @@
 #import "DrNgooSnakeCell.h"
 
 @implementation DrNgooSnakeCell
+@synthesize snakeName;
+@synthesize image;
+@synthesize imageView;
+@synthesize snakeNameLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -24,6 +28,21 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)setSnakeName:(NSString *)n {
+    if (![n isEqualToString:snakeName]) {
+        snakeName = [n copy];
+        snakeNameLabel.text = snakeName;
+    }
+}
+
+- (void)setImage:(UIImage *)img
+{
+    if (![img isEqual:image]) {
+        image = [img copy];
+        imageView.image = image;
+    }
 }
 
 @end
