@@ -13,6 +13,7 @@
 #import "DrNgooCureViewController.h"
 #import "DrNgooOptionViewController.h"
 #import <sqlite3.h>
+//#import "Reachability.h"
 
 #define kFileDBname             @"data.sqlite3"
 #define kFileSettingname        @"setting.plist"
@@ -22,6 +23,10 @@
 @synthesize window = _window;
 @synthesize rootViewController;
 @synthesize settingInfo;
+@synthesize hostActive;
+@synthesize internetActive;
+@synthesize internetReachable;
+@synthesize hostReachable;
 
 - (NSString *)dataFileDBPath {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -139,7 +144,7 @@
     
     fifthNavController.tabBarItem.image = [UIImage imageNamed:@"info_30.png"];
     fifthNavController.tabBarItem.title = @"เพิ่มเติม";
-    
+    NSLog(@"Prepare Sucessful");
     [self.window addSubview:rootViewController.view];
     //[[[UIApplication sharedApplication].windows objectAtIndex:0] addSubview:tabBarController.view];
     
@@ -152,7 +157,19 @@
     //[[NSBundle mainBundle] loadNibNamed:@"TabBarController" owner:self options:nil];
     //[self.window addSubview:rootViewController.view];
     [self setupViewControllers];
+    /*
+    // check for internet connection
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
     
+    internetReachable = [Reachability reachabilityForInternetConnection];
+    [internetReachable startNotifier];
+    
+    // check if a pathway to a random host exists
+    hostReachable = [Reachability reachabilityWithHostName: @"www.apple.com"];
+    [hostReachable startNotifier];
+    
+    // now patiently wait for the notification
+    */
     NSString *filePath = [self dataFileSettingPath];
     int version;
     if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
@@ -165,7 +182,8 @@
         [self.settingInfo writeToFile:filePath atomically:YES];
         version = -1;
     }
-    
+    //[self checkNetworkStatus:nil];
+
     int updatedVer = 0;
     if (version == -1) {
         updatedVer = [self createDataBase:0];
@@ -180,6 +198,63 @@
     return YES;
 }
 
+/*
+-(void) checkNetworkStatus:(NSNotification *)notice
+{
+    // called after network status changes
+    NetworkStatus internetStatus = [internetReachable currentReachabilityStatus];
+    switch (internetStatus)
+    {
+        case NotReachable:
+        {
+            NSLog(@"The internet is down.");
+            self.internetActive = NO;
+            
+            break;
+        }
+        case ReachableViaWiFi:
+        {
+            NSLog(@"The internet is working via WIFI.");
+            self.internetActive = YES;
+            
+            break;
+        }
+        case ReachableViaWWAN:
+        {
+            NSLog(@"The internet is working via WWAN.");
+            self.internetActive = YES;
+            
+            break;
+        }
+    }
+    
+    NetworkStatus hostStatus = [hostReachable currentReachabilityStatus];
+    switch (hostStatus)
+    {
+        case NotReachable:
+        {
+            NSLog(@"A gateway to the host server is down.");
+            self.hostActive = NO;
+            
+            break;
+        }
+        case ReachableViaWiFi:
+        {
+            NSLog(@"A gateway to the host server is working via WIFI.");
+            self.hostActive = YES;
+            
+            break;
+        }
+        case ReachableViaWWAN:
+        {
+            NSLog(@"A gateway to the host server is working via WWAN.");
+            self.hostActive = YES;
+            
+            break;
+        }
+    }
+}
+*/
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -205,6 +280,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

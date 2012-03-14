@@ -19,7 +19,6 @@
 @property (strong, nonatomic) NSArray *headShapes;
 @property (strong, nonatomic) NSArray *bodyTextiles;
 @property (strong, nonatomic) NSArray *specials;
-@property (strong, nonatomic) NSArray *poisons;
 
 @property (strong, nonatomic) NSString *color;
 @property (strong, nonatomic) NSString *bodyShape;
@@ -27,6 +26,6 @@
 @property (strong, nonatomic) NSString *bodyTextile;
 @property (strong, nonatomic) NSString *special;
 
-@property (assign, nonatomic) BOOL posion;
+- (IBAction)searchAction:(id)sender;
 
 @end

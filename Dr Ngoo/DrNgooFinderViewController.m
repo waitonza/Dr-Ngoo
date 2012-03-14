@@ -29,8 +29,6 @@
 @synthesize headShape;
 @synthesize bodyTextile;
 @synthesize special;
-@synthesize posion;
-@synthesize poisons;
 @synthesize childController;
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -67,13 +65,13 @@
     self.headShapes = [[NSArray alloc] initWithObjects:@"Hood",@"Flat",@"Triangle", nil];
     self.bodyTextiles = [[NSArray alloc] initWithObjects:@"None",@"Segments",@"Spots",@"Triangles",@"Smooth",@"Long Stripes",@"Cross",@"Large Spots", nil];
     self.specials = [[NSArray alloc] initWithObjects:@"Occipital scales",@"Asterisk textile",@"Blunt tail",@"Hissing",@"Brown-red tail",@"Big yellow eyes",@"Glossy",@"Big eyed",@"Yellow head", nil];
-    self.poisons = [[NSArray alloc] initWithObjects:@"Yes",@"No", nil];
     self.color = @"ไม่ถูกเลือก";
     self.bodyShape = @"ไม่ถูกเลือก";
     self.headShape = @"ไม่ถูกเลือก";
     self.bodyTextile = @"ไม่ถูกเลือก";
     self.special = @"ไม่ถูกเลือก";
-    self.posion = NO;
+    
+    
 }
 
 - (void)viewDidUnload
@@ -112,8 +110,6 @@
             self.bodyTextile = [bodyTextiles objectAtIndex:row];
         else if (childController.list == self.specials)
             self.special = [specials objectAtIndex:row];
-        else if (childController.list == self.poisons)
-            self.posion = [[poisons objectAtIndex:row] boolValue]; 
         UITableView *table = [self tableView];
         [table reloadData];
     }
@@ -125,12 +121,17 @@
     return NO;
 }
 
+- (IBAction)searchAction:(id)sender {
+    NSLog(@"Work");
+}
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return ([keys count] > 0) ? [keys count] : 1;	
+    return ([keys count] > 0) ? [keys count] + 1: 1;	
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -138,6 +139,9 @@
     // Return the number of rows in the section.
     if ([keys count] == 0)
         return 0;
+    if (section == [keys count]) {
+        return 1;
+    }
     NSString *key = [keys objectAtIndex:section];
     NSArray *nameSection = [names objectForKey:key];
     return [nameSection count];
@@ -148,8 +152,12 @@
     NSUInteger section = [indexPath section];
     NSUInteger row = [indexPath row];
     
-    NSString *key = [keys objectAtIndex:section];
-    NSArray *nameSection = [names objectForKey:key];
+    NSString *key = nil;
+    NSArray *nameSection = nil;
+    if (section == 0) {
+        key = [keys objectAtIndex:section];
+        nameSection = [names objectForKey:key];
+    }
     
     static NSString *SectionsTableIdentifier = @"SectionsTableIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
@@ -159,9 +167,8 @@
                 initWithStyle:UITableViewCellStyleValue1
                 reuseIdentifier:SectionsTableIdentifier];
     }
-    
-    cell.textLabel.text = [nameSection objectAtIndex:row];
     if (section == 0) {
+        cell.textLabel.text = [nameSection objectAtIndex:row];
         if (row == 0) 
             cell.detailTextLabel.text = self.color;
         else if (row == 1) 
@@ -173,11 +180,23 @@
         else if (row == 4) 
             cell.detailTextLabel.text = self.special;
     } else {
-        if (posion) {
-            cell.detailTextLabel.text = @"มีพิษ";
-        } else {
-            cell.detailTextLabel.text = @"ไม่มีพิษ";
-        }
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        button.frame = CGRectMake(0,0,300,45);
+        button.backgroundColor = [UIColor clearColor];
+        [button setTitle:@"ค้นหา" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(searchAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIImage *buttonImageNormal = [UIImage imageNamed:@"whiteButton.png"];
+        UIImage *stretchableButtonImageNormal = [buttonImageNormal stretchableImageWithLeftCapWidth:12 topCapHeight:0];
+        [button setBackgroundImage:stretchableButtonImageNormal forState:UIControlStateNormal];
+        
+        UIImage *buttonImagePressed = [UIImage imageNamed:@"blueButton.png"];
+        UIImage *stretchableButtonImagePressed = [buttonImagePressed stretchableImageWithLeftCapWidth:12 topCapHeight:0];
+        [button setBackgroundImage:stretchableButtonImagePressed forState:UIControlStateHighlighted];
+        
+        // add to a view
+        [cell.contentView addSubview:button];
+        return cell;
     }
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
@@ -188,6 +207,10 @@
 titleForHeaderInSection:(NSInteger)section {
     if ([keys count] == 0)
         return nil;
+            
+    if (section == 1) {
+        return nil;
+    }
     
     NSString *key = [keys objectAtIndex:section];
     if (key == UITableViewIndexSearch)
@@ -238,9 +261,6 @@ titleForHeaderInSection:(NSInteger)section {
             rowfound = [self.specials indexOfObject:self.special];
         }
     } else {
-        childController.list = self.poisons;
-        NSString *str = self.posion ? @"Yes" : @"No";
-        rowfound = [self.poisons indexOfObject:str];
     }
     
     if (rowfound != NSNotFound) {

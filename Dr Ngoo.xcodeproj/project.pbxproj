@@ -13,11 +13,6 @@
 		030F4BF01507C2E200238A79 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 030F4BEE1507C2E200238A79 /* InfoPlist.strings */; };
 		030F4BF21507C2E200238A79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 030F4BF11507C2E200238A79 /* main.m */; };
 		030F4BF61507C2E200238A79 /* DrNgooAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 030F4BF51507C2E200238A79 /* DrNgooAppDelegate.m */; };
-		030F4C0D1507C8BD00238A79 /* 01-home.png in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C081507C8BD00238A79 /* 01-home.png */; };
-		030F4C0E1507C8BD00238A79 /* 02-magnify.png in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C091507C8BD00238A79 /* 02-magnify.png */; };
-		030F4C0F1507C8BD00238A79 /* 03-radar.png in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C0A1507C8BD00238A79 /* 03-radar.png */; };
-		030F4C101507C8BD00238A79 /* 04-medical-bag.png in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C0B1507C8BD00238A79 /* 04-medical-bag.png */; };
-		030F4C111507C8BD00238A79 /* 05-gear2.png in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C0C1507C8BD00238A79 /* 05-gear2.png */; };
 		030F4C151507CB8400238A79 /* DrNgooHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030F4C131507CB8400238A79 /* DrNgooHomeViewController.m */; };
 		030F4C161507CB8400238A79 /* DrNgooHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C141507CB8400238A79 /* DrNgooHomeViewController.xib */; };
 		030F4C291507CC1300238A79 /* DrNgooCureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030F4C271507CC1300238A79 /* DrNgooCureViewController.m */; };
@@ -25,15 +20,24 @@
 		030F4C2E1507CC2A00238A79 /* DrNgooOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030F4C2C1507CC2A00238A79 /* DrNgooOptionViewController.m */; };
 		030F4C331507CD8C00238A79 /* DrNgooDatabaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 030F4C311507CD8C00238A79 /* DrNgooDatabaseViewController.m */; };
 		030F4C341507CD8C00238A79 /* DrNgooDatabaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 030F4C321507CD8C00238A79 /* DrNgooDatabaseViewController.xib */; };
-		0310DD0B150857A300094742 /* 33-cabinet.png in Resources */ = {isa = PBXBuildFile; fileRef = 0310DD08150857A300094742 /* 33-cabinet.png */; };
-		0310DD0C150857A300094742 /* 96-book.png in Resources */ = {isa = PBXBuildFile; fileRef = 0310DD09150857A300094742 /* 96-book.png */; };
-		0310DD0D150857A300094742 /* 179-notepad.png in Resources */ = {isa = PBXBuildFile; fileRef = 0310DD0A150857A300094742 /* 179-notepad.png */; };
 		0328D564150E564300091186 /* DrNgooCheckListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0328D563150E564300091186 /* DrNgooCheckListViewController.m */; };
 		0328D56E150E76D300091186 /* OptionList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0328D56D150E76D300091186 /* OptionList.plist */; };
-		03855845150E3BFB00CD1A51 /* info_30.png in Resources */ = {isa = PBXBuildFile; fileRef = 03855844150E3BFB00CD1A51 /* info_30.png */; };
+		0328D570150E7DC100091186 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0328D56F150E7DC100091186 /* SystemConfiguration.framework */; };
 		0385584E150E4A8400CD1A51 /* FinderList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0385584D150E4A8400CD1A51 /* FinderList.plist */; };
 		03C1F1BE150D98BF00CED02D /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C1F1BD150D98BF00CED02D /* libsqlite3.0.dylib */; };
 		03C1F20A150E01CF00CED02D /* DrNgooFinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C1F208150E01CE00CED02D /* DrNgooFinderViewController.m */; };
+		03C5DD59151045F900D8AA97 /* DrNgooSnakeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C5DD58151045F900D8AA97 /* DrNgooSnakeCell.m */; };
+		03C5DD681510475000D8AA97 /* blueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C5DD5B1510475000D8AA97 /* blueButton.png */; };
+		03C5DD691510475000D8AA97 /* 01-home.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C5DD5E1510475000D8AA97 /* 01-home.png */; };
+		03C5DD6A1510475000D8AA97 /* 02-magnify.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C5DD5F1510475000D8AA97 /* 02-magnify.png */; };
+		03C5DD6B1510475000D8AA97 /* 03-radar.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C5DD601510475000D8AA97 /* 03-radar.png */; };
+		03C5DD6C1510475000D8AA97 /* 04-medical-bag.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C5DD611510475000D8AA97 /* 04-medical-bag.png */; };
+		03C5DD6D1510475000D8AA97 /* 05-gear2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C5DD621510475000D8AA97 /* 05-gear2.png */; };
+		03C5DD6E1510475000D8AA97 /* 179-notepad.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C5DD631510475000D8AA97 /* 179-notepad.png */; };
+		03C5DD6F1510475000D8AA97 /* 33-cabinet.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C5DD641510475000D8AA97 /* 33-cabinet.png */; };
+		03C5DD701510475000D8AA97 /* 96-book.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C5DD651510475000D8AA97 /* 96-book.png */; };
+		03C5DD711510475000D8AA97 /* info_30.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C5DD661510475000D8AA97 /* info_30.png */; };
+		03C5DD721510475000D8AA97 /* whiteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C5DD671510475000D8AA97 /* whiteButton.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,11 +51,6 @@
 		030F4BF31507C2E200238A79 /* Dr Ngoo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dr Ngoo-Prefix.pch"; sourceTree = "<group>"; };
 		030F4BF41507C2E200238A79 /* DrNgooAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrNgooAppDelegate.h; sourceTree = "<group>"; };
 		030F4BF51507C2E200238A79 /* DrNgooAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrNgooAppDelegate.m; sourceTree = "<group>"; };
-		030F4C081507C8BD00238A79 /* 01-home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-home.png"; sourceTree = "<group>"; };
-		030F4C091507C8BD00238A79 /* 02-magnify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02-magnify.png"; sourceTree = "<group>"; };
-		030F4C0A1507C8BD00238A79 /* 03-radar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03-radar.png"; sourceTree = "<group>"; };
-		030F4C0B1507C8BD00238A79 /* 04-medical-bag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "04-medical-bag.png"; sourceTree = "<group>"; };
-		030F4C0C1507C8BD00238A79 /* 05-gear2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "05-gear2.png"; sourceTree = "<group>"; };
 		030F4C121507CB8400238A79 /* DrNgooHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooHomeViewController.h; sourceTree = "<group>"; };
 		030F4C131507CB8400238A79 /* DrNgooHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooHomeViewController.m; sourceTree = "<group>"; };
 		030F4C141507CB8400238A79 /* DrNgooHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrNgooHomeViewController.xib; sourceTree = "<group>"; };
@@ -63,19 +62,31 @@
 		030F4C301507CD8B00238A79 /* DrNgooDatabaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooDatabaseViewController.h; sourceTree = "<group>"; };
 		030F4C311507CD8C00238A79 /* DrNgooDatabaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooDatabaseViewController.m; sourceTree = "<group>"; };
 		030F4C321507CD8C00238A79 /* DrNgooDatabaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrNgooDatabaseViewController.xib; sourceTree = "<group>"; };
-		0310DD08150857A300094742 /* 33-cabinet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "33-cabinet.png"; sourceTree = "<group>"; };
-		0310DD09150857A300094742 /* 96-book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "96-book.png"; sourceTree = "<group>"; };
-		0310DD0A150857A300094742 /* 179-notepad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "179-notepad.png"; sourceTree = "<group>"; };
 		0328D557150E4D6C00091186 /* NSDictionary-MutableDeepCopy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary-MutableDeepCopy.h"; sourceTree = "<group>"; };
 		0328D558150E4D6C00091186 /* NSDictionary-MutableDeepCopy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary-MutableDeepCopy.m"; sourceTree = "<group>"; };
 		0328D562150E564200091186 /* DrNgooCheckListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooCheckListViewController.h; sourceTree = "<group>"; };
 		0328D563150E564300091186 /* DrNgooCheckListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooCheckListViewController.m; sourceTree = "<group>"; };
 		0328D56D150E76D300091186 /* OptionList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = OptionList.plist; sourceTree = "<group>"; };
-		03855844150E3BFB00CD1A51 /* info_30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_30.png; sourceTree = "<group>"; };
+		0328D56F150E7DC100091186 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0328D571150E7E2F00091186 /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		0328D572150E7E2F00091186 /* Reachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		0385584D150E4A8400CD1A51 /* FinderList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FinderList.plist; sourceTree = "<group>"; };
 		03C1F1BD150D98BF00CED02D /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		03C1F207150E01CE00CED02D /* DrNgooFinderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooFinderViewController.h; sourceTree = "<group>"; };
 		03C1F208150E01CE00CED02D /* DrNgooFinderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooFinderViewController.m; sourceTree = "<group>"; };
+		03C5DD57151045F900D8AA97 /* DrNgooSnakeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooSnakeCell.h; sourceTree = "<group>"; };
+		03C5DD58151045F900D8AA97 /* DrNgooSnakeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooSnakeCell.m; sourceTree = "<group>"; };
+		03C5DD5B1510475000D8AA97 /* blueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueButton.png; sourceTree = "<group>"; };
+		03C5DD5E1510475000D8AA97 /* 01-home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-home.png"; sourceTree = "<group>"; };
+		03C5DD5F1510475000D8AA97 /* 02-magnify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02-magnify.png"; sourceTree = "<group>"; };
+		03C5DD601510475000D8AA97 /* 03-radar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03-radar.png"; sourceTree = "<group>"; };
+		03C5DD611510475000D8AA97 /* 04-medical-bag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "04-medical-bag.png"; sourceTree = "<group>"; };
+		03C5DD621510475000D8AA97 /* 05-gear2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "05-gear2.png"; sourceTree = "<group>"; };
+		03C5DD631510475000D8AA97 /* 179-notepad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "179-notepad.png"; sourceTree = "<group>"; };
+		03C5DD641510475000D8AA97 /* 33-cabinet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "33-cabinet.png"; sourceTree = "<group>"; };
+		03C5DD651510475000D8AA97 /* 96-book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "96-book.png"; sourceTree = "<group>"; };
+		03C5DD661510475000D8AA97 /* info_30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_30.png; sourceTree = "<group>"; };
+		03C5DD671510475000D8AA97 /* whiteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteButton.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0328D570150E7DC100091186 /* SystemConfiguration.framework in Frameworks */,
 				03C1F1BE150D98BF00CED02D /* libsqlite3.0.dylib in Frameworks */,
 				030F4BE61507C2E200238A79 /* UIKit.framework in Frameworks */,
 				030F4BE81507C2E200238A79 /* Foundation.framework in Frameworks */,
@@ -114,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				03C1F1BD150D98BF00CED02D /* libsqlite3.0.dylib */,
+				0328D56F150E7DC100091186 /* SystemConfiguration.framework */,
 				030F4BE51507C2E200238A79 /* UIKit.framework */,
 				030F4BE71507C2E200238A79 /* Foundation.framework */,
 				030F4BE91507C2E200238A79 /* CoreGraphics.framework */,
@@ -124,7 +137,9 @@
 		030F4BEB1507C2E200238A79 /* Dr Ngoo */ = {
 			isa = PBXGroup;
 			children = (
-				030F4C071507C8BD00238A79 /* TabBar Icon */,
+				03C5DD5A1510475000D8AA97 /* Images */,
+				0328D571150E7E2F00091186 /* Reachability.h */,
+				0328D572150E7E2F00091186 /* Reachability.m */,
 				030F4BF41507C2E200238A79 /* DrNgooAppDelegate.h */,
 				030F4BF51507C2E200238A79 /* DrNgooAppDelegate.m */,
 				030F4BEC1507C2E200238A79 /* Supporting Files */,
@@ -147,6 +162,8 @@
 				0328D562150E564200091186 /* DrNgooCheckListViewController.h */,
 				0328D563150E564300091186 /* DrNgooCheckListViewController.m */,
 				0328D56D150E76D300091186 /* OptionList.plist */,
+				03C5DD57151045F900D8AA97 /* DrNgooSnakeCell.h */,
+				03C5DD58151045F900D8AA97 /* DrNgooSnakeCell.m */,
 			);
 			path = "Dr Ngoo";
 			sourceTree = "<group>";
@@ -162,18 +179,36 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		030F4C071507C8BD00238A79 /* TabBar Icon */ = {
+		03C5DD5A1510475000D8AA97 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				030F4C081507C8BD00238A79 /* 01-home.png */,
-				030F4C091507C8BD00238A79 /* 02-magnify.png */,
-				030F4C0A1507C8BD00238A79 /* 03-radar.png */,
-				03855844150E3BFB00CD1A51 /* info_30.png */,
-				030F4C0B1507C8BD00238A79 /* 04-medical-bag.png */,
-				030F4C0C1507C8BD00238A79 /* 05-gear2.png */,
-				0310DD08150857A300094742 /* 33-cabinet.png */,
-				0310DD09150857A300094742 /* 96-book.png */,
-				0310DD0A150857A300094742 /* 179-notepad.png */,
+				03C5DD5B1510475000D8AA97 /* blueButton.png */,
+				03C5DD5C1510475000D8AA97 /* SnakePicture */,
+				03C5DD5D1510475000D8AA97 /* TabBar Icon */,
+				03C5DD671510475000D8AA97 /* whiteButton.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		03C5DD5C1510475000D8AA97 /* SnakePicture */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SnakePicture;
+			sourceTree = "<group>";
+		};
+		03C5DD5D1510475000D8AA97 /* TabBar Icon */ = {
+			isa = PBXGroup;
+			children = (
+				03C5DD5E1510475000D8AA97 /* 01-home.png */,
+				03C5DD5F1510475000D8AA97 /* 02-magnify.png */,
+				03C5DD601510475000D8AA97 /* 03-radar.png */,
+				03C5DD611510475000D8AA97 /* 04-medical-bag.png */,
+				03C5DD621510475000D8AA97 /* 05-gear2.png */,
+				03C5DD631510475000D8AA97 /* 179-notepad.png */,
+				03C5DD641510475000D8AA97 /* 33-cabinet.png */,
+				03C5DD651510475000D8AA97 /* 96-book.png */,
+				03C5DD661510475000D8AA97 /* info_30.png */,
 			);
 			path = "TabBar Icon";
 			sourceTree = "<group>";
@@ -230,20 +265,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				030F4BF01507C2E200238A79 /* InfoPlist.strings in Resources */,
-				030F4C0D1507C8BD00238A79 /* 01-home.png in Resources */,
-				030F4C0E1507C8BD00238A79 /* 02-magnify.png in Resources */,
-				030F4C0F1507C8BD00238A79 /* 03-radar.png in Resources */,
-				030F4C101507C8BD00238A79 /* 04-medical-bag.png in Resources */,
-				030F4C111507C8BD00238A79 /* 05-gear2.png in Resources */,
 				030F4C161507CB8400238A79 /* DrNgooHomeViewController.xib in Resources */,
 				030F4C2A1507CC1300238A79 /* DrNgooCureViewController.xib in Resources */,
 				030F4C341507CD8C00238A79 /* DrNgooDatabaseViewController.xib in Resources */,
-				0310DD0B150857A300094742 /* 33-cabinet.png in Resources */,
-				0310DD0C150857A300094742 /* 96-book.png in Resources */,
-				0310DD0D150857A300094742 /* 179-notepad.png in Resources */,
-				03855845150E3BFB00CD1A51 /* info_30.png in Resources */,
 				0385584E150E4A8400CD1A51 /* FinderList.plist in Resources */,
 				0328D56E150E76D300091186 /* OptionList.plist in Resources */,
+				03C5DD681510475000D8AA97 /* blueButton.png in Resources */,
+				03C5DD691510475000D8AA97 /* 01-home.png in Resources */,
+				03C5DD6A1510475000D8AA97 /* 02-magnify.png in Resources */,
+				03C5DD6B1510475000D8AA97 /* 03-radar.png in Resources */,
+				03C5DD6C1510475000D8AA97 /* 04-medical-bag.png in Resources */,
+				03C5DD6D1510475000D8AA97 /* 05-gear2.png in Resources */,
+				03C5DD6E1510475000D8AA97 /* 179-notepad.png in Resources */,
+				03C5DD6F1510475000D8AA97 /* 33-cabinet.png in Resources */,
+				03C5DD701510475000D8AA97 /* 96-book.png in Resources */,
+				03C5DD711510475000D8AA97 /* info_30.png in Resources */,
+				03C5DD721510475000D8AA97 /* whiteButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +299,7 @@
 				030F4C331507CD8C00238A79 /* DrNgooDatabaseViewController.m in Sources */,
 				03C1F20A150E01CF00CED02D /* DrNgooFinderViewController.m in Sources */,
 				0328D564150E564300091186 /* DrNgooCheckListViewController.m in Sources */,
+				03C5DD59151045F900D8AA97 /* DrNgooSnakeCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
