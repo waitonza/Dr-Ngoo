@@ -1,20 +1,21 @@
 //
-//  DrNgooDatabaseViewController.m
+//  DrNgooResultViewController.m
 //  Dr Ngoo
 //
 //  Created by Wairung Tiranalinvit on 3/14/55 BE.
 //  Copyright (c) 2555 __MyCompanyName__. All rights reserved.
 //
 
-#import "DrNgooDatabaseViewController.h"
+#import "DrNgooResultViewController.h"
 #import "DrNgooSnakeCell.h"
 #import "DrNgooShowDetailViewController.h"
 
-@interface DrNgooDatabaseViewController ()
-@property (strong, nonatomic) DrNgooShowDetailViewController *childController;
-@end
+@interface DrNgooResultViewController ()
 
-@implementation DrNgooDatabaseViewController
+@property (strong, nonatomic) DrNgooShowDetailViewController *childController;
+
+@end
+@implementation DrNgooResultViewController
 
 @synthesize snakes;
 @synthesize childController;
@@ -45,8 +46,8 @@
                           @"Mac Pro", @"Name", @"thumb_s1.png", @"PicPath", nil];
     
     self.snakes = [[NSArray alloc] initWithObjects:row1, row2,
-                      row3, row4, row5, nil];
-
+                   row3, row4, row5, nil];
+    
 }
 
 - (void)viewDidUnload
@@ -114,9 +115,10 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger row = [indexPath row];
     NSDictionary *rowData = [self.snakes objectAtIndex:row];
     childController.title = [rowData objectForKey:@"Name"];
+
+    
     [self.navigationController pushViewController:childController
                                          animated:YES];
     
 }
-
 @end

@@ -25,6 +25,8 @@
 		0328D570150E7DC100091186 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0328D56F150E7DC100091186 /* SystemConfiguration.framework */; };
 		0385584E150E4A8400CD1A51 /* FinderList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0385584D150E4A8400CD1A51 /* FinderList.plist */; };
 		03ADA33E15107E680049CE71 /* thumb_s1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ADA33D15107E680049CE71 /* thumb_s1.png */; };
+		03ADA349151082C50049CE71 /* DrNgooShowDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03ADA347151082C50049CE71 /* DrNgooShowDetailViewController.m */; };
+		03ADA34A151082C50049CE71 /* DrNgooShowDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03ADA348151082C50049CE71 /* DrNgooShowDetailViewController.xib */; };
 		03C1F1BE150D98BF00CED02D /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C1F1BD150D98BF00CED02D /* libsqlite3.0.dylib */; };
 		03C1F20A150E01CF00CED02D /* DrNgooFinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C1F208150E01CE00CED02D /* DrNgooFinderViewController.m */; };
 		03C5DD59151045F900D8AA97 /* DrNgooSnakeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C5DD58151045F900D8AA97 /* DrNgooSnakeCell.m */; };
@@ -40,6 +42,12 @@
 		03C5DD711510475000D8AA97 /* info_30.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C5DD661510475000D8AA97 /* info_30.png */; };
 		03C5DD721510475000D8AA97 /* whiteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C5DD671510475000D8AA97 /* whiteButton.png */; };
 		03C5DD741510484600D8AA97 /* DrNgooSnakeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C5DD731510484600D8AA97 /* DrNgooSnakeCell.xib */; };
+		03F8FD921510A06600528646 /* DrNgooResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F8FD901510A06600528646 /* DrNgooResultViewController.m */; };
+		03F8FD931510A06600528646 /* DrNgooResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F8FD911510A06600528646 /* DrNgooResultViewController.xib */; };
+		03F8FD971510A37A00528646 /* DrNgooCreditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F8FD951510A37A00528646 /* DrNgooCreditViewController.m */; };
+		03F8FD981510A37A00528646 /* DrNgooCreditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F8FD961510A37A00528646 /* DrNgooCreditViewController.xib */; };
+		03F8FD9C1510A3B100528646 /* DrNgooKnowledgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F8FD9A1510A3B100528646 /* DrNgooKnowledgeViewController.m */; };
+		03F8FD9D1510A3B100528646 /* DrNgooKnowledgeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F8FD9B1510A3B100528646 /* DrNgooKnowledgeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +82,9 @@
 		0328D572150E7E2F00091186 /* Reachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		0385584D150E4A8400CD1A51 /* FinderList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FinderList.plist; sourceTree = "<group>"; };
 		03ADA33D15107E680049CE71 /* thumb_s1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumb_s1.png; sourceTree = "<group>"; };
+		03ADA346151082C50049CE71 /* DrNgooShowDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooShowDetailViewController.h; sourceTree = "<group>"; };
+		03ADA347151082C50049CE71 /* DrNgooShowDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooShowDetailViewController.m; sourceTree = "<group>"; };
+		03ADA348151082C50049CE71 /* DrNgooShowDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrNgooShowDetailViewController.xib; sourceTree = "<group>"; };
 		03C1F1BD150D98BF00CED02D /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		03C1F207150E01CE00CED02D /* DrNgooFinderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooFinderViewController.h; sourceTree = "<group>"; };
 		03C1F208150E01CE00CED02D /* DrNgooFinderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooFinderViewController.m; sourceTree = "<group>"; };
@@ -91,6 +102,15 @@
 		03C5DD661510475000D8AA97 /* info_30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_30.png; sourceTree = "<group>"; };
 		03C5DD671510475000D8AA97 /* whiteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteButton.png; sourceTree = "<group>"; };
 		03C5DD731510484600D8AA97 /* DrNgooSnakeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrNgooSnakeCell.xib; sourceTree = "<group>"; };
+		03F8FD8F1510A06600528646 /* DrNgooResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooResultViewController.h; sourceTree = "<group>"; };
+		03F8FD901510A06600528646 /* DrNgooResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooResultViewController.m; sourceTree = "<group>"; };
+		03F8FD911510A06600528646 /* DrNgooResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrNgooResultViewController.xib; sourceTree = "<group>"; };
+		03F8FD941510A37A00528646 /* DrNgooCreditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooCreditViewController.h; sourceTree = "<group>"; };
+		03F8FD951510A37A00528646 /* DrNgooCreditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooCreditViewController.m; sourceTree = "<group>"; };
+		03F8FD961510A37A00528646 /* DrNgooCreditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrNgooCreditViewController.xib; sourceTree = "<group>"; };
+		03F8FD991510A3B100528646 /* DrNgooKnowledgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooKnowledgeViewController.h; sourceTree = "<group>"; };
+		03F8FD9A1510A3B100528646 /* DrNgooKnowledgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooKnowledgeViewController.m; sourceTree = "<group>"; };
+		03F8FD9B1510A3B100528646 /* DrNgooKnowledgeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrNgooKnowledgeViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,34 +161,16 @@
 		030F4BEB1507C2E200238A79 /* Dr Ngoo */ = {
 			isa = PBXGroup;
 			children = (
+				030F4BEC1507C2E200238A79 /* Supporting Files */,
 				03C5DD5A1510475000D8AA97 /* Images */,
-				0328D571150E7E2F00091186 /* Reachability.h */,
-				0328D572150E7E2F00091186 /* Reachability.m */,
+				03ADA340151081520049CE71 /* HomeViewController */,
+				03ADA341151081890049CE71 /* FinderViewController */,
+				03ADA342151081CD0049CE71 /* DatabaseViewController */,
+				03ADA343151081F00049CE71 /* CureViewController */,
+				03ADA3441510823A0049CE71 /* OptionViewController */,
+				03ADA345151082710049CE71 /* SharedFiles */,
 				030F4BF41507C2E200238A79 /* DrNgooAppDelegate.h */,
 				030F4BF51507C2E200238A79 /* DrNgooAppDelegate.m */,
-				030F4BEC1507C2E200238A79 /* Supporting Files */,
-				030F4C121507CB8400238A79 /* DrNgooHomeViewController.h */,
-				030F4C131507CB8400238A79 /* DrNgooHomeViewController.m */,
-				030F4C141507CB8400238A79 /* DrNgooHomeViewController.xib */,
-				03C1F207150E01CE00CED02D /* DrNgooFinderViewController.h */,
-				03C1F208150E01CE00CED02D /* DrNgooFinderViewController.m */,
-				030F4C261507CC1300238A79 /* DrNgooCureViewController.h */,
-				030F4C271507CC1300238A79 /* DrNgooCureViewController.m */,
-				030F4C281507CC1300238A79 /* DrNgooCureViewController.xib */,
-				030F4C2B1507CC2A00238A79 /* DrNgooOptionViewController.h */,
-				030F4C2C1507CC2A00238A79 /* DrNgooOptionViewController.m */,
-				0328D557150E4D6C00091186 /* NSDictionary-MutableDeepCopy.h */,
-				0328D558150E4D6C00091186 /* NSDictionary-MutableDeepCopy.m */,
-				0385584D150E4A8400CD1A51 /* FinderList.plist */,
-				0328D562150E564200091186 /* DrNgooCheckListViewController.h */,
-				0328D563150E564300091186 /* DrNgooCheckListViewController.m */,
-				0328D56D150E76D300091186 /* OptionList.plist */,
-				03C5DD57151045F900D8AA97 /* DrNgooSnakeCell.h */,
-				03C5DD58151045F900D8AA97 /* DrNgooSnakeCell.m */,
-				03C5DD731510484600D8AA97 /* DrNgooSnakeCell.xib */,
-				03210877151051A7001F3391 /* DrNgooDatabaseViewController.h */,
-				03210878151051A7001F3391 /* DrNgooDatabaseViewController.m */,
-				03210879151051A7001F3391 /* DrNgooDatabaseViewController.xib */,
 			);
 			path = "Dr Ngoo";
 			sourceTree = "<group>";
@@ -182,6 +184,84 @@
 				030F4BF31507C2E200238A79 /* Dr Ngoo-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		03ADA340151081520049CE71 /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				030F4C121507CB8400238A79 /* DrNgooHomeViewController.h */,
+				030F4C131507CB8400238A79 /* DrNgooHomeViewController.m */,
+				030F4C141507CB8400238A79 /* DrNgooHomeViewController.xib */,
+			);
+			name = HomeViewController;
+			sourceTree = "<group>";
+		};
+		03ADA341151081890049CE71 /* FinderViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0385584D150E4A8400CD1A51 /* FinderList.plist */,
+				0328D562150E564200091186 /* DrNgooCheckListViewController.h */,
+				0328D563150E564300091186 /* DrNgooCheckListViewController.m */,
+				03C1F207150E01CE00CED02D /* DrNgooFinderViewController.h */,
+				03C1F208150E01CE00CED02D /* DrNgooFinderViewController.m */,
+				03F8FD8F1510A06600528646 /* DrNgooResultViewController.h */,
+				03F8FD901510A06600528646 /* DrNgooResultViewController.m */,
+				03F8FD911510A06600528646 /* DrNgooResultViewController.xib */,
+			);
+			name = FinderViewController;
+			sourceTree = "<group>";
+		};
+		03ADA342151081CD0049CE71 /* DatabaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				03C5DD57151045F900D8AA97 /* DrNgooSnakeCell.h */,
+				03C5DD58151045F900D8AA97 /* DrNgooSnakeCell.m */,
+				03C5DD731510484600D8AA97 /* DrNgooSnakeCell.xib */,
+				03210877151051A7001F3391 /* DrNgooDatabaseViewController.h */,
+				03210878151051A7001F3391 /* DrNgooDatabaseViewController.m */,
+				03210879151051A7001F3391 /* DrNgooDatabaseViewController.xib */,
+				03ADA346151082C50049CE71 /* DrNgooShowDetailViewController.h */,
+				03ADA347151082C50049CE71 /* DrNgooShowDetailViewController.m */,
+				03ADA348151082C50049CE71 /* DrNgooShowDetailViewController.xib */,
+			);
+			name = DatabaseViewController;
+			sourceTree = "<group>";
+		};
+		03ADA343151081F00049CE71 /* CureViewController */ = {
+			isa = PBXGroup;
+			children = (
+				030F4C261507CC1300238A79 /* DrNgooCureViewController.h */,
+				030F4C271507CC1300238A79 /* DrNgooCureViewController.m */,
+				030F4C281507CC1300238A79 /* DrNgooCureViewController.xib */,
+			);
+			name = CureViewController;
+			sourceTree = "<group>";
+		};
+		03ADA3441510823A0049CE71 /* OptionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0328D56D150E76D300091186 /* OptionList.plist */,
+				030F4C2B1507CC2A00238A79 /* DrNgooOptionViewController.h */,
+				030F4C2C1507CC2A00238A79 /* DrNgooOptionViewController.m */,
+				03F8FD941510A37A00528646 /* DrNgooCreditViewController.h */,
+				03F8FD951510A37A00528646 /* DrNgooCreditViewController.m */,
+				03F8FD961510A37A00528646 /* DrNgooCreditViewController.xib */,
+				03F8FD991510A3B100528646 /* DrNgooKnowledgeViewController.h */,
+				03F8FD9A1510A3B100528646 /* DrNgooKnowledgeViewController.m */,
+				03F8FD9B1510A3B100528646 /* DrNgooKnowledgeViewController.xib */,
+			);
+			name = OptionViewController;
+			sourceTree = "<group>";
+		};
+		03ADA345151082710049CE71 /* SharedFiles */ = {
+			isa = PBXGroup;
+			children = (
+				0328D557150E4D6C00091186 /* NSDictionary-MutableDeepCopy.h */,
+				0328D558150E4D6C00091186 /* NSDictionary-MutableDeepCopy.m */,
+				0328D571150E7E2F00091186 /* Reachability.h */,
+				0328D572150E7E2F00091186 /* Reachability.m */,
+			);
+			name = SharedFiles;
 			sourceTree = "<group>";
 		};
 		03C5DD5A1510475000D8AA97 /* Images */ = {
@@ -289,6 +369,10 @@
 				03C5DD741510484600D8AA97 /* DrNgooSnakeCell.xib in Resources */,
 				0321087B151051A7001F3391 /* DrNgooDatabaseViewController.xib in Resources */,
 				03ADA33E15107E680049CE71 /* thumb_s1.png in Resources */,
+				03ADA34A151082C50049CE71 /* DrNgooShowDetailViewController.xib in Resources */,
+				03F8FD931510A06600528646 /* DrNgooResultViewController.xib in Resources */,
+				03F8FD981510A37A00528646 /* DrNgooCreditViewController.xib in Resources */,
+				03F8FD9D1510A3B100528646 /* DrNgooKnowledgeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +392,10 @@
 				0328D564150E564300091186 /* DrNgooCheckListViewController.m in Sources */,
 				03C5DD59151045F900D8AA97 /* DrNgooSnakeCell.m in Sources */,
 				0321087A151051A7001F3391 /* DrNgooDatabaseViewController.m in Sources */,
+				03ADA349151082C50049CE71 /* DrNgooShowDetailViewController.m in Sources */,
+				03F8FD921510A06600528646 /* DrNgooResultViewController.m in Sources */,
+				03F8FD971510A37A00528646 /* DrNgooCreditViewController.m in Sources */,
+				03F8FD9C1510A3B100528646 /* DrNgooKnowledgeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

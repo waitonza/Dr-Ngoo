@@ -9,9 +9,11 @@
 #import "DrNgooFinderViewController.h"
 #import "NSDictionary-MutableDeepCopy.h"
 #import "DrNgooCheckListViewController.h"
+#import "DrNgooResultViewController.h"
 
 @interface DrNgooFinderViewController ()
 @property (strong, nonatomic) DrNgooCheckListViewController *childController;
+@property (strong, nonatomic) DrNgooResultViewController *childResult;
 @end
 
 @implementation DrNgooFinderViewController
@@ -30,6 +32,7 @@
 @synthesize bodyTextile;
 @synthesize special;
 @synthesize childController;
+@synthesize childResult;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -123,6 +126,13 @@
 
 - (IBAction)searchAction:(id)sender {
     NSLog(@"Work");
+    if (childResult == nil) {
+        childResult = [[DrNgooResultViewController alloc] initWithNibName:@"DrNgooResultViewController" bundle:nil];
+    }
+    childResult.title = @"ผลการค้นหา";
+    [self.navigationController pushViewController:childResult
+                                     animated:YES];
+
 }
 
 
@@ -181,7 +191,7 @@
             cell.detailTextLabel.text = self.special;
     } else {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        button.frame = CGRectMake(0,0,300,45);
+        button.frame = CGRectMake(-1,-1,300,50);
         button.backgroundColor = [UIColor clearColor];
         [button setTitle:@"ค้นหา" forState:UIControlStateNormal];
         [button addTarget:self action:@selector(searchAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -261,6 +271,7 @@ titleForHeaderInSection:(NSInteger)section {
             rowfound = [self.specials indexOfObject:self.special];
         }
     } else {
+        NSLog(@"555");
     }
     
     if (rowfound != NSNotFound) {

@@ -25,8 +25,8 @@
 @synthesize settingInfo;
 @synthesize hostActive;
 @synthesize internetActive;
-@synthesize internetReachable;
-@synthesize hostReachable;
+//@synthesize internetReachable;
+//@synthesize hostReachable;
 
 - (NSString *)dataFileDBPath {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -118,7 +118,7 @@
     DrNgooDatabaseViewController *dataBaseController = [[DrNgooDatabaseViewController alloc] initWithNibName:@"DrNgooDatabaseViewController" bundle:nil];
     //favouriteController.bFavorites = YES;
     UINavigationController *thirdNavController = [[UINavigationController alloc] initWithRootViewController:dataBaseController];
-    dataBaseController.title = @"ผลการค้นหา";
+    dataBaseController.title = @"ฐานข้อมูลงู";
     
     DrNgooCureViewController *cureController = [[DrNgooCureViewController alloc] initWithNibName:@"DrNgooCureViewController" bundle:nil];
     UINavigationController *fourthNavController = [[UINavigationController alloc] initWithRootViewController:cureController];
