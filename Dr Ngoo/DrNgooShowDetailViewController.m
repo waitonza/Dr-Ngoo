@@ -16,6 +16,29 @@
 
 @implementation DrNgooShowDetailViewController
 
+@synthesize snakeNameLabel;
+@synthesize snakeImageView;
+@synthesize colorLabel;
+@synthesize minMaxSizeLabel;
+@synthesize bodyShapeLabel;
+@synthesize headShapeLabel;
+@synthesize bodyTextileLabel;
+@synthesize specialLabel;
+@synthesize posionLabel;
+@synthesize serumLabel;
+
+@synthesize snakeName;
+@synthesize snakeImage;
+@synthesize color;
+@synthesize minSize;
+@synthesize maxSize;
+@synthesize bodyShape;
+@synthesize headShape;
+@synthesize bodyTextile;
+@synthesize special;
+@synthesize posion;
+@synthesize serum;
+
 @synthesize scrollView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -35,6 +58,21 @@
     self.scrollView.contentSize = CGSizeMake(320, 500);
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.snakeNameLabel.text = snakeName;
+    self.snakeImageView.image = snakeImage;
+    self.colorLabel.text = color;
+    NSString *newStr = [minSize stringByAppendingString:@" - "];
+    self.minMaxSizeLabel.text = [newStr stringByAppendingString:maxSize];
+    self.bodyShapeLabel.text = bodyShape;
+    self.headShapeLabel.text = headShape;
+    self.bodyTextileLabel.text = bodyTextile;
+    self.specialLabel.text = special;
+    self.posionLabel.text = posion;
+    self.serumLabel.text = serum;
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -44,7 +82,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return NO;
 }
 
 @end

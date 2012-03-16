@@ -41,9 +41,8 @@
 }
 
 - (int)createDataBase:(int)ver {
-    NSString *path = @"http://exitosus.no.de/drngoo?version=";
+    NSString *path = @"http://exitosus.no.de/drngoo/database/";
     path = [path stringByAppendingFormat:@"%d",ver];
-    path = [path stringByAppendingString:@"&type=database"];
     NSURL *url = [NSURL URLWithString:path];
     NSString *urlString = [NSString stringWithContentsOfURL:url encoding:1 error:nil];
     
@@ -76,9 +75,8 @@
 }
 
 - (int)updateDataBase:(int)ver {
-    NSString *path = @"http://exitosus.no.de/drngoo?version=";
+    NSString *path = @"http://exitosus.no.de/drngoo/database/";
     path = [path stringByAppendingFormat:@"%d",ver];
-    path = [path stringByAppendingString:@"&type=database"];
     NSURL *url = [NSURL URLWithString:path];
     NSString *urlString = [NSString stringWithContentsOfURL:url encoding:1 error:nil];
     
@@ -105,11 +103,24 @@
 - (void)setupViewControllers
 {
     rootViewController = [[UITabBarController alloc] init];
+    UIImage *gradientImage44 = [[UIImage imageNamed:@"navBg.png"] 
+                                resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    [[UINavigationBar appearance] setBackgroundImage:gradientImage44 
+                                       forBarMetrics:UIBarMetricsDefault];
+    
+    // Customize back button items differently
+    UIImage *buttonBack30 = [[UIImage imageNamed:@"button_back_textured_30.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 13, 0, 5)];
+    UIImage *buttonBack24 = [[UIImage imageNamed:@"button_back_textured_24.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 12, 0, 5)];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:buttonBack30 forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:buttonBack24 forState:UIControlStateNormal barMetrics:UIBarMetricsLandscapePhone];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blueColor], UITextAttributeTextColor, [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0], UITextAttributeTextShadowColor, [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowOffset, [UIFont fontWithName:@"AmericanTypewriter" size:0.0], UITextAttributeFont, nil] forState:UIControlStateNormal];
     
     DrNgooHomeViewController *mainViewController = [[DrNgooHomeViewController alloc] initWithNibName:@"DrNgooHomeViewController" bundle:nil];
     UINavigationController *firstNavController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
-    mainViewController.title = @"Doctor Ngoo";
-    
+    UIImageView* img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Head.png"]];
+    mainViewController.title = @"Dr Ngoo";
+    mainViewController.navigationItem.titleView = img;
+     
     DrNgooFinderViewController *finderController = [[DrNgooFinderViewController alloc] initWithStyle:UITableViewStyleGrouped];
     UINavigationController *secondNavController = [[UINavigationController alloc] initWithRootViewController:finderController];
     //currentLocationController.useCurrentLocation = YES;
@@ -170,6 +181,7 @@
     
     // now patiently wait for the notification
     */
+    
     NSString *filePath = [self dataFileSettingPath];
     int version;
     if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {

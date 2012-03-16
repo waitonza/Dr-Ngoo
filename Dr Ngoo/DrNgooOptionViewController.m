@@ -66,6 +66,8 @@
     NSMutableDictionary *settingInfo = [NSMutableDictionary dictionaryWithContentsOfFile:filePath];
     self.dbVer = [dbVer stringByAppendingString:[settingInfo objectForKey:@"DBVersion"]];
     
+    self.view.backgroundColor = [UIColor clearColor];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BG.png"]];
 }
 
 - (void)viewDidUnload

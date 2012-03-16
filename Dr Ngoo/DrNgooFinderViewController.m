@@ -74,6 +74,12 @@
     self.bodyTextile = @"ไม่ถูกเลือก";
     self.special = @"ไม่ถูกเลือก";
     
+    //UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BG.png"]];
+    
+    //[self.view addSubview:backgroundImage];
+    //[self.view sendSubviewToBack:backgroundImage];
+    self.view.backgroundColor = [UIColor clearColor];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BG.png"]];
     
 }
 

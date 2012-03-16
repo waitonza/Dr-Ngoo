@@ -18,6 +18,46 @@
 
 @synthesize snakes;
 @synthesize childController;
+@synthesize table;
+@synthesize search;
+@synthesize allNames;
+@synthesize names;
+@synthesize keys;
+@synthesize isSearching;
+
+/*
+#pragma mark -
+#pragma mark Custom Methods
+- (void)resetSearch {
+    self.names = [self.allNames mutableDeepCopy];
+    NSMutableArray *keyArray = [[NSMutableArray alloc] init];
+    [keyArray addObject:UITableViewIndexSearch];
+    [keyArray addObjectsFromArray:[[self.allNames allKeys]
+                                   sortedArrayUsingSelector:@selector(compare:)]];
+    self.keys = keyArray;
+}
+
+- (void)handleSearchForTerm:(NSString *)searchTerm {
+    NSMutableArray *sectionsToRemove = [[NSMutableArray alloc] init];
+    [self resetSearch];
+    
+    for (NSString *key in self.keys) {
+        NSMutableArray *array = [names valueForKey:key];
+        NSMutableArray *toRemove = [[NSMutableArray alloc] init];
+        for (NSString *name in array) {
+            if ([name rangeOfString:searchTerm
+                            options:NSCaseInsensitiveSearch].location == NSNotFound)
+                [toRemove addObject:name];
+        }
+        if ([array count] == [toRemove count])
+            [sectionsToRemove addObject:key];
+        
+        [array removeObjectsInArray:toRemove];
+    }
+    [self.keys removeObjectsInArray:sectionsToRemove];
+    [table reloadData];
+}
+*/
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -114,9 +154,58 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger row = [indexPath row];
     NSDictionary *rowData = [self.snakes objectAtIndex:row];
     childController.title = [rowData objectForKey:@"Name"];
+    childController.snakeName = [rowData objectForKey:@"Name"];
+    [search resignFirstResponder];
+    [search setShowsCancelButton:NO animated:YES];
     [self.navigationController pushViewController:childController
                                          animated:YES];
     
+}
+
+#pragma mark -
+#pragma mark Table View Delegate Methods
+- (NSIndexPath *)tableView:(UITableView *)tableView
+  willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [search resignFirstResponder];
+    isSearching = NO;
+    search.text = @"";
+    [tableView reloadData];
+    return indexPath;
+}
+
+#pragma mark -
+#pragma mark Search Bar Delegate Methods
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    NSString *searchTerm = [searchBar text];
+    //[self handleSearchForTerm:searchTerm];
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar resignFirstResponder];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar
+    textDidChange:(NSString *)searchTerm {
+    if ([searchTerm length] == 0) {
+        //[self resetSearch];
+        [table reloadData];
+        return;
+    }
+    //[self handleSearchForTerm:searchTerm];
+}
+
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    isSearching = NO;
+    search.text = @"";
+    //[self resetSearch];
+    [table reloadData];
+    [searchBar resignFirstResponder];
+    [searchBar setShowsCancelButton:NO animated:YES];
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    isSearching = YES;
+    [table reloadData];
+    [searchBar setShowsCancelButton:YES animated:YES];
 }
 
 @end
