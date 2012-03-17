@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DrNgooResultViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+@interface DrNgooResultViewController : UIViewController 
+<UITableViewDataSource,UITableViewDelegate,UISearchDisplayDelegate,UISearchBarDelegate>
 
+@property (strong, nonatomic) IBOutlet UITableView *table;
+@property (strong, nonatomic) IBOutlet UISearchBar *search;
 @property (strong, nonatomic) NSArray *snakes;
+@property (strong, nonatomic) NSMutableArray *filteredListContent;
+@property (nonatomic, copy) NSString *savedSearchTerm;
+@property (assign, nonatomic) BOOL searchWasActive;
 
 @end

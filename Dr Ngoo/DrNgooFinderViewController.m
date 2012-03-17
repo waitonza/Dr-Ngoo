@@ -7,9 +7,9 @@
 //
 
 #import "DrNgooFinderViewController.h"
-#import "NSDictionary-MutableDeepCopy.h"
 #import "DrNgooCheckListViewController.h"
 #import "DrNgooResultViewController.h"
+#import "DrNgooSnake.h"
 
 @interface DrNgooFinderViewController ()
 @property (strong, nonatomic) DrNgooCheckListViewController *childController;
@@ -63,10 +63,10 @@
                                    sortedArrayUsingSelector:@selector(compare:)]];
     self.keys = keyArray;
 
-    self.colors = [[NSArray alloc] initWithObjects:@"Brown",@"Green",@"Black",@"Yellow",@"Black and Yellow",@"Black and White",nil];
-    self.bodyShapes = [[NSArray alloc] initWithObjects:@"Slim",@"Fat",@"Triangle",nil];
-    self.headShapes = [[NSArray alloc] initWithObjects:@"Hood",@"Flat",@"Triangle", nil];
-    self.bodyTextiles = [[NSArray alloc] initWithObjects:@"None",@"Segments",@"Spots",@"Triangles",@"Smooth",@"Long Stripes",@"Cross",@"Large Spots", nil];
+    self.colors = [[NSArray alloc] initWithObjects:@"น้ำตาล",@"เขียว",@"ดำ",@"เหลือง",nil];
+    self.bodyShapes = [[NSArray alloc] initWithObjects:@"เพรียว",@"อ้วน",@"สามเหลี่ยม",nil];
+    self.headShapes = [[NSArray alloc] initWithObjects:@"แม่เบี้ย",@"เรียว",@"สามเหลี่ยม", nil];
+    self.bodyTextiles = [[NSArray alloc] initWithObjects:@"ไม่มีลาย",@"Segments",@"Spots",@"Triangles",@"Smooth",@"Long Stripes",@"Cross",@"Large Spots", nil];
     self.specials = [[NSArray alloc] initWithObjects:@"Occipital scales",@"Asterisk textile",@"Blunt tail",@"Hissing",@"Brown-red tail",@"Big yellow eyes",@"Glossy",@"Big eyed",@"Yellow head", nil];
     self.color = @"ไม่ถูกเลือก";
     self.bodyShape = @"ไม่ถูกเลือก";
@@ -136,6 +136,14 @@
         childResult = [[DrNgooResultViewController alloc] initWithNibName:@"DrNgooResultViewController" bundle:nil];
     }
     childResult.title = @"ผลการค้นหา";
+    
+    DrNgooSnake *row1 = [[DrNgooSnake alloc] initWithName:@"MacBook Air" andPicPath:@"thumb_s1.png"];
+    DrNgooSnake *row2 = [[DrNgooSnake alloc] initWithName:@"MacBook Pro" andPicPath:@"thumb_s1.png"];
+    DrNgooSnake *row3 = [[DrNgooSnake alloc] initWithName:@"iMac" andPicPath:@"thumb_s1.png"];
+    DrNgooSnake *row4 = [[DrNgooSnake alloc] initWithName:@"Mac Mini" andPicPath:@"thumb_s1.png"];
+    DrNgooSnake *row5 = [[DrNgooSnake alloc] initWithName:@"Mac Pro" andPicPath:@"thumb_s1.png"];
+    
+    childResult.snakes = [[NSArray alloc] initWithObjects:row1, row2 ,row3, row4, row5, nil];
     [self.navigationController pushViewController:childResult
                                      animated:YES];
 
@@ -201,6 +209,8 @@
         button.backgroundColor = [UIColor clearColor];
         [button setTitle:@"ค้นหา" forState:UIControlStateNormal];
         [button addTarget:self action:@selector(searchAction:) forControlEvents:UIControlEventTouchUpInside];
+        button.titleLabel.font = [UIFont boldSystemFontOfSize:24.0];
+        button.titleLabel.textColor = [UIColor blueColor];
         
         UIImage *buttonImageNormal = [UIImage imageNamed:@"whiteButton.png"];
         UIImage *stretchableButtonImageNormal = [buttonImageNormal stretchableImageWithLeftCapWidth:12 topCapHeight:0];
@@ -248,6 +258,7 @@ titleForHeaderInSection:(NSInteger)section {
     if (childController == nil) {
         childController = [[DrNgooCheckListViewController alloc] initWithStyle:UITableViewStylePlain];
     }
+    
     NSUInteger section = [indexPath section];
     NSUInteger row = [indexPath row];
     

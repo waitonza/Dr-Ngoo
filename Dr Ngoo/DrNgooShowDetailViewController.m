@@ -17,27 +17,38 @@
 @implementation DrNgooShowDetailViewController
 
 @synthesize snakeNameLabel;
+@synthesize snakeNameThaiLabel;
 @synthesize snakeImageView;
-@synthesize colorLabel;
-@synthesize minMaxSizeLabel;
-@synthesize bodyShapeLabel;
-@synthesize headShapeLabel;
-@synthesize bodyTextileLabel;
-@synthesize specialLabel;
-@synthesize posionLabel;
+@synthesize scienceLabel;
+@synthesize familyLabel;
+@synthesize otherNameLabel;
+@synthesize geographyLabel;
+@synthesize poisonousLabel;
 @synthesize serumLabel;
+@synthesize colorLabel;
+@synthesize sizeLabel;
+@synthesize characteristiceLabel;
+@synthesize reproductionLabel;
+@synthesize foodLabel;
+@synthesize locationLabel;
+@synthesize distributionLabel;
 
 @synthesize snakeName;
+@synthesize snakeThaiName;
 @synthesize snakeImage;
-@synthesize color;
-@synthesize minSize;
-@synthesize maxSize;
-@synthesize bodyShape;
-@synthesize headShape;
-@synthesize bodyTextile;
-@synthesize special;
-@synthesize posion;
+@synthesize science;
+@synthesize family;
+@synthesize otherName;
+@synthesize geography;
+@synthesize poisonous;
 @synthesize serum;
+@synthesize color;
+@synthesize size;
+@synthesize characteristice;
+@synthesize reproduction;
+@synthesize food;
+@synthesize location;
+@synthesize distribution;
 
 @synthesize scrollView;
 
@@ -55,22 +66,28 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.scrollView.delegate = self;
-    self.scrollView.contentSize = CGSizeMake(320, 500);
+    self.scrollView.contentSize = CGSizeMake(320, 1050);
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     self.snakeNameLabel.text = snakeName;
+    self.snakeNameThaiLabel.text = snakeThaiName;
     self.snakeImageView.image = snakeImage;
-    self.colorLabel.text = color;
-    NSString *newStr = [minSize stringByAppendingString:@" - "];
-    self.minMaxSizeLabel.text = [newStr stringByAppendingString:maxSize];
-    self.bodyShapeLabel.text = bodyShape;
-    self.headShapeLabel.text = headShape;
-    self.bodyTextileLabel.text = bodyTextile;
-    self.specialLabel.text = special;
-    self.posionLabel.text = posion;
+    self.scienceLabel.text = science;
+    self.familyLabel.text = family;
+    self.otherNameLabel.text = otherName;
+    self.geographyLabel.text = geography;
+    self.poisonousLabel.text = poisonous;
     self.serumLabel.text = serum;
+    self.colorLabel.text = color;
+    self.sizeLabel.text = size;
+    self.characteristiceLabel.text = characteristice;
+    self.reproductionLabel.text = reproduction;
+    self.foodLabel.text = food;
+    self.locationLabel.text = location;
+    self.distributionLabel.text = distribution;
+    
 }
 
 - (void)viewDidUnload

@@ -19,6 +19,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
+        self.backgroundColor = [[UIColor alloc] initWithRed:240.0 green:233.0 blue:193.0 alpha:1.0];
     }
     return self;
 }

@@ -9,6 +9,8 @@
 #import "DrNgooDatabaseViewController.h"
 #import "DrNgooSnakeCell.h"
 #import "DrNgooShowDetailViewController.h"
+#import "NSDictionary+MutableDeepCopy.h"
+#import "DrNgooSnake.h"
 
 @interface DrNgooDatabaseViewController ()
 @property (strong, nonatomic) DrNgooShowDetailViewController *childController;
@@ -20,44 +22,9 @@
 @synthesize childController;
 @synthesize table;
 @synthesize search;
-@synthesize allNames;
-@synthesize names;
-@synthesize keys;
-@synthesize isSearching;
-
-/*
-#pragma mark -
-#pragma mark Custom Methods
-- (void)resetSearch {
-    self.names = [self.allNames mutableDeepCopy];
-    NSMutableArray *keyArray = [[NSMutableArray alloc] init];
-    [keyArray addObject:UITableViewIndexSearch];
-    [keyArray addObjectsFromArray:[[self.allNames allKeys]
-                                   sortedArrayUsingSelector:@selector(compare:)]];
-    self.keys = keyArray;
-}
-
-- (void)handleSearchForTerm:(NSString *)searchTerm {
-    NSMutableArray *sectionsToRemove = [[NSMutableArray alloc] init];
-    [self resetSearch];
-    
-    for (NSString *key in self.keys) {
-        NSMutableArray *array = [names valueForKey:key];
-        NSMutableArray *toRemove = [[NSMutableArray alloc] init];
-        for (NSString *name in array) {
-            if ([name rangeOfString:searchTerm
-                            options:NSCaseInsensitiveSearch].location == NSNotFound)
-                [toRemove addObject:name];
-        }
-        if ([array count] == [toRemove count])
-            [sectionsToRemove addObject:key];
-        
-        [array removeObjectsInArray:toRemove];
-    }
-    [self.keys removeObjectsInArray:sectionsToRemove];
-    [table reloadData];
-}
-*/
+@synthesize filteredListContent;
+@synthesize savedSearchTerm;
+@synthesize searchWasActive;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -68,32 +35,37 @@
     return self;
 }
 
+#pragma mark - View lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    NSDictionary *row1 = [[NSDictionary alloc] initWithObjectsAndKeys:
-                          @"MacBook Air", @"Name", @"thumb_s1.png", @"PicPath", nil];
-    NSDictionary *row2 = [[NSDictionary alloc] initWithObjectsAndKeys:
-                          @"MacBook Pro", @"Name", @"thumb_s1.png", @"PicPath", nil];
-    NSDictionary *row3 = [[NSDictionary alloc] initWithObjectsAndKeys:
-                          @"iMac", @"Name", @"thumb_s1.png", @"PicPath", nil];
-    NSDictionary *row4 = [[NSDictionary alloc] initWithObjectsAndKeys:
-                          @"Mac Mini", @"Name", @"thumb_s1.png", @"PicPath", nil];
-    NSDictionary *row5 = [[NSDictionary alloc] initWithObjectsAndKeys:
-                          @"Mac Pro", @"Name", @"thumb_s1.png", @"PicPath", nil];
-    
-    self.snakes = [[NSArray alloc] initWithObjects:row1, row2,
-                      row3, row4, row5, nil];
-
+    // create a filtered list that will contain products for the search results table.
+	self.filteredListContent = [NSMutableArray arrayWithCapacity:[self.snakes count]];
+	
+	// restore search settings if they were saved in didReceiveMemoryWarning.
+    if (self.savedSearchTerm)
+	{
+        [self.searchDisplayController setActive:self.searchWasActive];
+        [self.searchDisplayController.searchBar setText:savedSearchTerm];
+        
+        self.savedSearchTerm = nil;
+    }
+	[self.table reloadData];
 }
 
 - (void)viewDidUnload
 {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+	self.filteredListContent = nil;
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    // save the state of the search UI so that it can be restored if the view is re-created
+    self.searchWasActive = [self.searchDisplayController isActive];
+    self.savedSearchTerm = [self.searchDisplayController.searchBar text];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -105,7 +77,14 @@
 #pragma mark Table Data Source Methods
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
-    return [self.snakes count];
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+	{
+        return [self.filteredListContent count];
+    }
+	else
+	{
+        return [self.snakes count];
+    }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
@@ -119,12 +98,24 @@
     }
     
     DrNgooSnakeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellTableIdentifier];
+    if (cell == nil) {
+        UINib *nib = [UINib nibWithNibName:@"DrNgooSnakeCell" bundle:nil];
+        [tableView registerNib:nib forCellReuseIdentifier:CellTableIdentifier];
+        cell = [[DrNgooSnakeCell alloc] init];
+    }
     
-    NSUInteger row = [indexPath row];
-    NSDictionary *rowData = [self.snakes objectAtIndex:row];
-    
-    cell.snakeName = [rowData objectForKey:@"Name"];
-    cell.imageView.image = [UIImage imageNamed:[rowData objectForKey:@"PicPath"]];
+    DrNgooSnake *rowData = nil;
+	if (tableView == self.searchDisplayController.searchResultsTableView)
+	{
+        rowData = [self.filteredListContent objectAtIndex:indexPath.row];
+    }
+	else
+	{
+        rowData = [self.snakes objectAtIndex:indexPath.row];
+    }
+
+    cell.snakeName = rowData.name;
+    cell.imageView.image = [UIImage imageNamed:rowData.picPath];
     
     return cell;
 }
@@ -151,61 +142,73 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     }
     
     //NSUInteger section = [indexPath section];
-    NSUInteger row = [indexPath row];
-    NSDictionary *rowData = [self.snakes objectAtIndex:row];
-    childController.title = [rowData objectForKey:@"Name"];
-    childController.snakeName = [rowData objectForKey:@"Name"];
-    [search resignFirstResponder];
-    [search setShowsCancelButton:NO animated:YES];
+    DrNgooSnake *rowData = nil;
+	if (tableView == self.searchDisplayController.searchResultsTableView)
+	{
+        rowData = [self.filteredListContent objectAtIndex:indexPath.row];
+        for (DrNgooSnakeCell *c in self.filteredListContent) {
+            NSLog(@"%@",rowData.name);
+        }
+    }
+	else
+	{
+        rowData = [self.snakes objectAtIndex:indexPath.row];
+    }
+
+    childController.title = rowData.name;
+    childController.snakeName = rowData.name; 
     [self.navigationController pushViewController:childController
                                          animated:YES];
     
 }
 
 #pragma mark -
-#pragma mark Table View Delegate Methods
-- (NSIndexPath *)tableView:(UITableView *)tableView
-  willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [search resignFirstResponder];
-    isSearching = NO;
-    search.text = @"";
-    [tableView reloadData];
-    return indexPath;
+#pragma mark Content Filtering
+
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+	/*
+	 Update the filtered array based on the search text and scope.
+	 */
+	
+	[self.filteredListContent removeAllObjects]; // First clear the filtered array.
+	
+	/*
+	 Search the main list for products whose type matches the scope (if selected) and whose name matches searchText; add items that match to the filtered array.
+	 */
+	for (DrNgooSnake *snake in snakes)
+	{
+        NSComparisonResult result = [snake.name compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
+        if (result == NSOrderedSame)
+        {
+            [self.filteredListContent addObject:snake];
+        }
+		
+	}
 }
+
 
 #pragma mark -
-#pragma mark Search Bar Delegate Methods
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    NSString *searchTerm = [searchBar text];
-    //[self handleSearchForTerm:searchTerm];
-    [searchBar setShowsCancelButton:NO animated:YES];
-    [searchBar resignFirstResponder];
-}
+#pragma mark UISearchDisplayController Delegate Methods
 
-- (void)searchBar:(UISearchBar *)searchBar
-    textDidChange:(NSString *)searchTerm {
-    if ([searchTerm length] == 0) {
-        //[self resetSearch];
-        [table reloadData];
-        return;
-    }
-    //[self handleSearchForTerm:searchTerm];
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
 }
 
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    isSearching = NO;
-    search.text = @"";
-    //[self resetSearch];
-    [table reloadData];
-    [searchBar resignFirstResponder];
-    [searchBar setShowsCancelButton:NO animated:YES];
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
+{
+    [self filterContentForSearchText:[self.searchDisplayController.searchBar text] scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+    
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
 }
 
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-    isSearching = YES;
-    [table reloadData];
-    [searchBar setShowsCancelButton:YES animated:YES];
-}
 
 @end

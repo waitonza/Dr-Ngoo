@@ -13,6 +13,8 @@
 #import "DrNgooCureViewController.h"
 #import "DrNgooOptionViewController.h"
 #import <sqlite3.h>
+#import "DrNgooSnake.h"
+
 //#import "Reachability.h"
 
 #define kFileDBname             @"data.sqlite3"
@@ -44,7 +46,7 @@
     NSString *path = @"http://exitosus.no.de/drngoo/database/";
     path = [path stringByAppendingFormat:@"%d",ver];
     NSURL *url = [NSURL URLWithString:path];
-    NSString *urlString = [NSString stringWithContentsOfURL:url encoding:1 error:nil];
+    NSString *urlString = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
     
     NSArray *listItems = [urlString componentsSeparatedByString:@"\n"];
     
@@ -78,7 +80,7 @@
     NSString *path = @"http://exitosus.no.de/drngoo/database/";
     path = [path stringByAppendingFormat:@"%d",ver];
     NSURL *url = [NSURL URLWithString:path];
-    NSString *urlString = [NSString stringWithContentsOfURL:url encoding:1 error:nil];
+    NSString *urlString = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
     
     NSArray *listItems = [urlString componentsSeparatedByString:@"\n"];
     char *errorMsg;
@@ -130,6 +132,14 @@
     //favouriteController.bFavorites = YES;
     UINavigationController *thirdNavController = [[UINavigationController alloc] initWithRootViewController:dataBaseController];
     dataBaseController.title = @"ฐานข้อมูลงู";
+    DrNgooSnake *row1 = [[DrNgooSnake alloc] initWithName:@"MacBook Air" andPicPath:@"thumb_s1.png"];
+    DrNgooSnake *row2 = [[DrNgooSnake alloc] initWithName:@"MacBook Pro" andPicPath:@"thumb_s1.png"];
+    DrNgooSnake *row3 = [[DrNgooSnake alloc] initWithName:@"iMac" andPicPath:@"thumb_s1.png"];
+    DrNgooSnake *row4 = [[DrNgooSnake alloc] initWithName:@"Mac Mini" andPicPath:@"thumb_s1.png"];
+    DrNgooSnake *row5 = [[DrNgooSnake alloc] initWithName:@"Mac Pro" andPicPath:@"thumb_s1.png"];
+    
+    dataBaseController.snakes = [[NSArray alloc] initWithObjects:row1, row2 ,row3, row4, row5, nil];
+
     
     DrNgooCureViewController *cureController = [[DrNgooCureViewController alloc] initWithNibName:@"DrNgooCureViewController" bundle:nil];
     UINavigationController *fourthNavController = [[UINavigationController alloc] initWithRootViewController:cureController];
@@ -155,6 +165,13 @@
     
     fifthNavController.tabBarItem.image = [UIImage imageNamed:@"info_30.png"];
     fifthNavController.tabBarItem.title = @"เพิ่มเติม";
+    
+    // Customize UIBarButtonItems 
+    UIImage *button30 = [[UIImage imageNamed:@"button_textured_30"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+    UIImage *button24 = [[UIImage imageNamed:@"button_textured_24"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+    [[UIBarButtonItem appearance] setBackgroundImage:button30 forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearance] setBackgroundImage:button24 forState:UIControlStateNormal barMetrics:UIBarMetricsLandscapePhone];
+    
     NSLog(@"Prepare Sucessful");
     [self.window addSubview:rootViewController.view];
     //[[[UIApplication sharedApplication].windows objectAtIndex:0] addSubview:tabBarController.view];
