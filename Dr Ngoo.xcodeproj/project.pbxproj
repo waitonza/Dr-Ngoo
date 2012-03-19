@@ -63,6 +63,11 @@
 		03EFC447151340DA00CAA079 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EFC445151340DA00CAA079 /* Default@2x.png */; };
 		03EFC44B15135B7200CAA079 /* DrNgooDatabaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EFC44915135B7100CAA079 /* DrNgooDatabaseViewController.m */; };
 		03EFC44C15135B7200CAA079 /* DrNgooDatabaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03EFC44A15135B7100CAA079 /* DrNgooDatabaseViewController.xib */; };
+		03F6919415144D0200EDC7E3 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F6918B15144D0200EDC7E3 /* FMDatabase.m */; };
+		03F6919515144D0200EDC7E3 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F6918D15144D0200EDC7E3 /* FMDatabaseAdditions.m */; };
+		03F6919615144D0200EDC7E3 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F6918F15144D0200EDC7E3 /* FMDatabasePool.m */; };
+		03F6919715144D0200EDC7E3 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F6919115144D0200EDC7E3 /* FMDatabaseQueue.m */; };
+		03F6919815144D0200EDC7E3 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F6919315144D0200EDC7E3 /* FMResultSet.m */; };
 		03F8FD921510A06600528646 /* DrNgooResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F8FD901510A06600528646 /* DrNgooResultViewController.m */; };
 		03F8FD931510A06600528646 /* DrNgooResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F8FD911510A06600528646 /* DrNgooResultViewController.xib */; };
 		03F8FD971510A37A00528646 /* DrNgooCreditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F8FD951510A37A00528646 /* DrNgooCreditViewController.m */; };
@@ -143,6 +148,16 @@
 		03EFC44815135B7100CAA079 /* DrNgooDatabaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooDatabaseViewController.h; sourceTree = "<group>"; };
 		03EFC44915135B7100CAA079 /* DrNgooDatabaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooDatabaseViewController.m; sourceTree = "<group>"; };
 		03EFC44A15135B7100CAA079 /* DrNgooDatabaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrNgooDatabaseViewController.xib; sourceTree = "<group>"; };
+		03F6918A15144D0200EDC7E3 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		03F6918B15144D0200EDC7E3 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		03F6918C15144D0200EDC7E3 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		03F6918D15144D0200EDC7E3 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		03F6918E15144D0200EDC7E3 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		03F6918F15144D0200EDC7E3 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		03F6919015144D0200EDC7E3 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		03F6919115144D0200EDC7E3 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		03F6919215144D0200EDC7E3 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		03F6919315144D0200EDC7E3 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		03F8FD8F1510A06600528646 /* DrNgooResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooResultViewController.h; sourceTree = "<group>"; };
 		03F8FD901510A06600528646 /* DrNgooResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooResultViewController.m; sourceTree = "<group>"; };
 		03F8FD911510A06600528646 /* DrNgooResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrNgooResultViewController.xib; sourceTree = "<group>"; };
@@ -261,8 +276,6 @@
 				03ADA346151082C50049CE71 /* DrNgooShowDetailViewController.h */,
 				03ADA347151082C50049CE71 /* DrNgooShowDetailViewController.m */,
 				03ADA348151082C50049CE71 /* DrNgooShowDetailViewController.xib */,
-				03EFC4361513317300CAA079 /* DrNgooSnake.h */,
-				03EFC4371513317400CAA079 /* DrNgooSnake.m */,
 				03EFC44815135B7100CAA079 /* DrNgooDatabaseViewController.h */,
 				03EFC44915135B7100CAA079 /* DrNgooDatabaseViewController.m */,
 				03EFC44A15135B7100CAA079 /* DrNgooDatabaseViewController.xib */,
@@ -299,8 +312,11 @@
 		03ADA345151082710049CE71 /* SharedFiles */ = {
 			isa = PBXGroup;
 			children = (
+				03F6918915144D0200EDC7E3 /* FMDB */,
 				0328D571150E7E2F00091186 /* Reachability.h */,
 				0328D572150E7E2F00091186 /* Reachability.m */,
+				03EFC4361513317300CAA079 /* DrNgooSnake.h */,
+				03EFC4371513317400CAA079 /* DrNgooSnake.m */,
 			);
 			name = SharedFiles;
 			sourceTree = "<group>";
@@ -374,6 +390,23 @@
 				03EFC4091512C7AC00CAA079 /* iTunesArtwork */,
 			);
 			path = Icon;
+			sourceTree = "<group>";
+		};
+		03F6918915144D0200EDC7E3 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				03F6918A15144D0200EDC7E3 /* FMDatabase.h */,
+				03F6918B15144D0200EDC7E3 /* FMDatabase.m */,
+				03F6918C15144D0200EDC7E3 /* FMDatabaseAdditions.h */,
+				03F6918D15144D0200EDC7E3 /* FMDatabaseAdditions.m */,
+				03F6918E15144D0200EDC7E3 /* FMDatabasePool.h */,
+				03F6918F15144D0200EDC7E3 /* FMDatabasePool.m */,
+				03F6919015144D0200EDC7E3 /* FMDatabaseQueue.h */,
+				03F6919115144D0200EDC7E3 /* FMDatabaseQueue.m */,
+				03F6919215144D0200EDC7E3 /* FMResultSet.h */,
+				03F6919315144D0200EDC7E3 /* FMResultSet.m */,
+			);
+			path = FMDB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -494,6 +527,11 @@
 				03F8FD9C1510A3B100528646 /* DrNgooKnowledgeViewController.m in Sources */,
 				03EFC4381513317400CAA079 /* DrNgooSnake.m in Sources */,
 				03EFC44B15135B7200CAA079 /* DrNgooDatabaseViewController.m in Sources */,
+				03F6919415144D0200EDC7E3 /* FMDatabase.m in Sources */,
+				03F6919515144D0200EDC7E3 /* FMDatabaseAdditions.m in Sources */,
+				03F6919615144D0200EDC7E3 /* FMDatabasePool.m in Sources */,
+				03F6919715144D0200EDC7E3 /* FMDatabaseQueue.m in Sources */,
+				03F6919815144D0200EDC7E3 /* FMResultSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

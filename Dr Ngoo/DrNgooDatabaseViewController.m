@@ -9,7 +9,6 @@
 #import "DrNgooDatabaseViewController.h"
 #import "DrNgooSnakeCell.h"
 #import "DrNgooShowDetailViewController.h"
-#import "NSDictionary+MutableDeepCopy.h"
 #import "DrNgooSnake.h"
 
 @interface DrNgooDatabaseViewController ()
@@ -90,17 +89,10 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellTableIdentifier = @"CellTableIdentifier";
-    static BOOL nibsRegistered = NO;
-    if (!nibsRegistered) {
-        UINib *nib = [UINib nibWithNibName:@"DrNgooSnakeCell" bundle:nil];
-        [tableView registerNib:nib forCellReuseIdentifier:CellTableIdentifier];
-        nibsRegistered = YES;
-    }
-    
+    UINib *nib = [UINib nibWithNibName:@"DrNgooSnakeCell" bundle:nil];
+    [tableView registerNib:nib forCellReuseIdentifier:CellTableIdentifier];    
     DrNgooSnakeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellTableIdentifier];
     if (cell == nil) {
-        UINib *nib = [UINib nibWithNibName:@"DrNgooSnakeCell" bundle:nil];
-        [tableView registerNib:nib forCellReuseIdentifier:CellTableIdentifier];
         cell = [[DrNgooSnakeCell alloc] init];
     }
     
@@ -156,7 +148,22 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     }
 
     childController.title = rowData.name;
-    childController.snakeName = rowData.name; 
+    childController.snakeName = rowData.snakeName;
+    childController.snakeThaiName = rowData.snakeThaiName;
+    childController.science = rowData.science;
+    childController.family = rowData.family;
+    childController.otherName = rowData.otherName;
+    childController.geography = rowData.geography;
+    childController.poisonous = rowData.poisonous;
+    childController.serum = rowData.serum;
+    childController.color = rowData.color;
+    childController.size = rowData.size;
+    childController.characteristice = rowData.characteristice;
+    childController.reproduction = rowData.reproduction;
+    childController.food = rowData.food;
+    childController.location = rowData.location;
+    childController.distribution = rowData.distribution;
+
     [self.navigationController pushViewController:childController
                                          animated:YES];
     
@@ -176,14 +183,12 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	/*
 	 Search the main list for products whose type matches the scope (if selected) and whose name matches searchText; add items that match to the filtered array.
 	 */
+    
 	for (DrNgooSnake *snake in snakes)
 	{
-        NSComparisonResult result = [snake.name compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
-        if (result == NSOrderedSame)
-        {
-            [self.filteredListContent addObject:snake];
-        }
-		
+        if ([snake.name rangeOfString:searchText
+							options:NSCaseInsensitiveSearch].location != NSNotFound)
+                [filteredListContent addObject:snake];
 	}
 }
 

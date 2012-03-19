@@ -13,6 +13,23 @@
 @synthesize name;
 @synthesize picPath;
 
+@synthesize snakeName;
+@synthesize snakeThaiName;
+@synthesize snakeImage;
+@synthesize science;
+@synthesize family;
+@synthesize otherName;
+@synthesize geography;
+@synthesize poisonous;
+@synthesize serum;
+@synthesize color;
+@synthesize size;
+@synthesize characteristice;
+@synthesize reproduction;
+@synthesize food;
+@synthesize location;
+@synthesize distribution;
+
 -(id)initWithName:(NSString*)n andPicPath:(NSString*)p {
     self = [super init];
     if (self) {

@@ -51,7 +51,11 @@
     }
     NSUInteger row = [indexPath row];
     NSUInteger oldRow = [lastIndexPath row];
+    
     cell.textLabel.text = [list objectAtIndex:row];
+    if ([cell.textLabel.text isEqualToString:@""]) {
+         cell.textLabel.text = @"ยังไม่ถูกเลือก";
+    }
     cell.accessoryType = (row == oldRow && lastIndexPath != nil) ?
     UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     

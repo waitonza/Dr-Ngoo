@@ -66,7 +66,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.scrollView.delegate = self;
-    self.scrollView.contentSize = CGSizeMake(320, 1050);
+    self.scrollView.contentSize = CGSizeMake(320, 1763);
 }
 
 - (void)viewWillAppear:(BOOL)animated

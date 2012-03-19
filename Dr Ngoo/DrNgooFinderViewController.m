@@ -10,6 +10,14 @@
 #import "DrNgooCheckListViewController.h"
 #import "DrNgooResultViewController.h"
 #import "DrNgooSnake.h"
+#import "FMDatabase.h"
+#import "FMDatabaseAdditions.h"
+#import "FMDatabasePool.h"
+#import "FMDatabaseQueue.h"
+
+
+#define kFileDBname             @"data.sqlite3"
+#define kFileSettingname        @"setting.plist"
 
 @interface DrNgooFinderViewController ()
 @property (strong, nonatomic) DrNgooCheckListViewController *childController;
@@ -63,21 +71,16 @@
                                    sortedArrayUsingSelector:@selector(compare:)]];
     self.keys = keyArray;
 
-    self.colors = [[NSArray alloc] initWithObjects:@"น้ำตาล",@"เขียว",@"ดำ",@"เหลือง",nil];
-    self.bodyShapes = [[NSArray alloc] initWithObjects:@"เพรียว",@"อ้วน",@"สามเหลี่ยม",nil];
-    self.headShapes = [[NSArray alloc] initWithObjects:@"แม่เบี้ย",@"เรียว",@"สามเหลี่ยม", nil];
-    self.bodyTextiles = [[NSArray alloc] initWithObjects:@"ไม่มีลาย",@"Segments",@"Spots",@"Triangles",@"Smooth",@"Long Stripes",@"Cross",@"Large Spots", nil];
-    self.specials = [[NSArray alloc] initWithObjects:@"Occipital scales",@"Asterisk textile",@"Blunt tail",@"Hissing",@"Brown-red tail",@"Big yellow eyes",@"Glossy",@"Big eyed",@"Yellow head", nil];
-    self.color = @"ไม่ถูกเลือก";
-    self.bodyShape = @"ไม่ถูกเลือก";
-    self.headShape = @"ไม่ถูกเลือก";
-    self.bodyTextile = @"ไม่ถูกเลือก";
-    self.special = @"ไม่ถูกเลือก";
-    
-    //UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BG.png"]];
-    
-    //[self.view addSubview:backgroundImage];
-    //[self.view sendSubviewToBack:backgroundImage];
+    self.colors = [[NSArray alloc] initWithObjects:@"",@"น้ำตาล",@"เขียว",@"ดำ",@"เหลือง",nil];
+    self.bodyShapes = [[NSArray alloc] initWithObjects:@"",@"เพรียว",@"อ้วน",@"สามเหลี่ยม",nil];
+    self.headShapes = [[NSArray alloc] initWithObjects:@"",@"แม่เบี้ย",@"เรียว",@"สามเหลี่ยม", nil];
+    self.bodyTextiles = [[NSArray alloc] initWithObjects:@"",@"ไม่มีลาย",@"ปล้อง",@"ลายวงกลม",@"ลายสามเหลี่ยม",@"เรียบ",@"ลายเป็นทางยาว",@"ลายกากบาท",@"ลายวงแต้มขนาดใหญ่", nil];
+    self.specials = [[NSArray alloc] initWithObjects:@"",@"เกล็ดท้ายทอยขนาดใหญ่",@"ลายดอกจัน",@"ปลายหางทู่มน",@"ส่งเสียงขู่",@"หางสีน้ำตาลแดง",@"ตากลมโตสีเหลืองขนาดใหญ่",@"เกล็ดลำตัวเรียบเป็นเงาแวววาว",@"ตากลมโต",@"หัวสีเหลือง", nil];
+    self.color = @"";
+    self.bodyShape = @"";
+    self.headShape = @"";
+    self.bodyTextile = @"";
+    self.special = @"";
     self.view.backgroundColor = [UIColor clearColor];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BG.png"]];
     
@@ -132,18 +135,12 @@
 
 - (IBAction)searchAction:(id)sender {
     NSLog(@"Work");
-    if (childResult == nil) {
-        childResult = [[DrNgooResultViewController alloc] initWithNibName:@"DrNgooResultViewController" bundle:nil];
-    }
+    //if (childResult == nil) {
+    childResult = [[DrNgooResultViewController alloc] initWithNibName:@"DrNgooResultViewController" bundle:nil];
+    //}
     childResult.title = @"ผลการค้นหา";
     
-    DrNgooSnake *row1 = [[DrNgooSnake alloc] initWithName:@"MacBook Air" andPicPath:@"thumb_s1.png"];
-    DrNgooSnake *row2 = [[DrNgooSnake alloc] initWithName:@"MacBook Pro" andPicPath:@"thumb_s1.png"];
-    DrNgooSnake *row3 = [[DrNgooSnake alloc] initWithName:@"iMac" andPicPath:@"thumb_s1.png"];
-    DrNgooSnake *row4 = [[DrNgooSnake alloc] initWithName:@"Mac Mini" andPicPath:@"thumb_s1.png"];
-    DrNgooSnake *row5 = [[DrNgooSnake alloc] initWithName:@"Mac Pro" andPicPath:@"thumb_s1.png"];
-    
-    childResult.snakes = [[NSArray alloc] initWithObjects:row1, row2 ,row3, row4, row5, nil];
+    childResult.snakes = [self querySearch];
     [self.navigationController pushViewController:childResult
                                      animated:YES];
 
@@ -193,16 +190,36 @@
     }
     if (section == 0) {
         cell.textLabel.text = [nameSection objectAtIndex:row];
-        if (row == 0) 
-            cell.detailTextLabel.text = self.color;
-        else if (row == 1) 
-            cell.detailTextLabel.text = self.bodyShape;
-        else if (row == 2) 
-            cell.detailTextLabel.text = self.headShape;
-        else if (row == 3) 
-            cell.detailTextLabel.text = self.bodyTextile;
-        else if (row == 4) 
-            cell.detailTextLabel.text = self.special;
+        if (row == 0) {
+            if ([self.color isEqualToString:@""]) {
+                cell.detailTextLabel.text = @"ไม่ถูกเลือก";
+            } 
+            else cell.detailTextLabel.text = self.color;
+        }
+        else if (row == 1) {
+            if ([self.bodyShape isEqualToString:@""]) {
+                cell.detailTextLabel.text = @"ไม่ถูกเลือก";
+            } 
+            else cell.detailTextLabel.text = self.bodyShape;
+        }
+        else if (row == 2) {
+            if ([self.headShape isEqualToString:@""]) {
+                cell.detailTextLabel.text = @"ไม่ถูกเลือก";
+            } 
+            else cell.detailTextLabel.text = self.headShape;
+        }
+        else if (row == 3) {
+            if ([self.bodyTextile isEqualToString:@""]) {
+                cell.detailTextLabel.text = @"ไม่ถูกเลือก";
+            } 
+            else cell.detailTextLabel.text = self.bodyTextile;
+        }
+        else if (row == 4) {
+            if ([self.special isEqualToString:@""]) {
+                cell.detailTextLabel.text = @"ไม่ถูกเลือก";
+            } 
+            else cell.detailTextLabel.text = self.special;
+        }
     } else {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         button.frame = CGRectMake(-1,-1,300,50);
@@ -301,5 +318,76 @@ titleForHeaderInSection:(NSInteger)section {
                                          animated:YES];
 
 }
+
+- (NSString *)dataFileDBPath {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    return [documentsDirectory stringByAppendingPathComponent:kFileDBname];
+}
+
+
+- (NSMutableArray*)querySearch
+{
+    FMDatabase *db = [FMDatabase databaseWithPath:self.dataFileDBPath];
+    
+    if (![db open]) {
+        NSLog(@"Could not open db.");
+        
+        return 0;
+    }
+    NSString *query = @"SELECT * FROM SnakeDB";
+    if (![self.color isEqualToString:@""] || ![self.bodyShape isEqualToString:@""] || ![self.headShape isEqualToString:@""] || ![self.bodyTextile isEqualToString:@""] || ![self.special isEqualToString:@""]) {
+        query = [query stringByAppendingString:@" WHERE "];
+        if (![self.color isEqualToString:@""]) {
+            query = [query stringByAppendingFormat:@"Color LIKE '%%%@%%' AND ",self.color];
+        }
+        if (![self.bodyShape isEqualToString:@""]) {
+            query = [query stringByAppendingFormat:@"BodyShape LIKE '%%%@%%' AND ",self.bodyShape];
+        }
+        if (![self.headShape isEqualToString:@""]) {
+            query = [query stringByAppendingFormat:@"HeadShape LIKE '%%%@%%' AND ",self.headShape];
+        }
+        if (![self.bodyTextile isEqualToString:@""]) {
+            query = [query stringByAppendingFormat:@"BodyTextile LIKE '%%%@%%' AND ",self.bodyTextile];
+        }
+        if (![self.special isEqualToString:@""]) {
+            query = [query stringByAppendingFormat:@"SpecialChar LIKE '%%%@%%'",self.special];
+        }
+        
+        if ([query rangeOfString:@"AND" options:NSCaseInsensitiveSearch range:NSMakeRange([query length] - 4, 4)].location != NSNotFound) {
+            NSMutableString *string = [query mutableCopy];
+            [string replaceCharactersInRange:NSMakeRange([query length] - 4, 4) withString:@""];
+            query = [string copy];
+        }
+    }
+    //NSString *query = [[NSString alloc] initWithFormat:@"SELECT * FROM SnakeDB WHERE Color LIKE '%@' and BodyShape LIKE '%@' and HeadShape LIKE '%@' and BodyTextile LIKE '%@' and SpecialChar LIKE '%@'",self.color,self.bodyShape,self.headShape,self.bodyTextile,self.special];
+    //query = @"SELECT * FROM SnakeDB where Color LIKE 'น้ำตาล'";
+    NSLog(@"%@",query);
+    FMResultSet *rs = [db executeQuery:query];
+    
+    NSMutableArray *snakes = [[NSMutableArray alloc] init];
+    
+    while ([rs next]) {
+        DrNgooSnake *snake = [[DrNgooSnake alloc] initWithName:[rs stringForColumn:@"ThaiName"] andPicPath:@"thumb_s1.png"];
+        snake.snakeName = [rs stringForColumn:@"Name"];
+        snake.snakeThaiName = [rs stringForColumn:@"ThaiName"];
+        snake.science = [rs stringForColumn:@"ScienceName"];
+        snake.family = [rs stringForColumn:@"Family"];
+        snake.otherName = [rs stringForColumn:@"OtherName"];
+        snake.geography = [rs stringForColumn:@"Geography"];
+        snake.poisonous = [rs stringForColumn:@"Poisonous"];
+        snake.serum = [rs stringForColumn:@"Serum"];
+        snake.color = [rs stringForColumn:@"Color"];
+        snake.size = [rs stringForColumn:@"Size"];
+        snake.characteristice = [rs stringForColumn:@"Characteristics"];
+        snake.reproduction = [rs stringForColumn:@"Reproduction"];
+        snake.food = [rs stringForColumn:@"Food"];
+        snake.location = [rs stringForColumn:@"Location"];
+        snake.distribution = [rs stringForColumn:@"Distribution"];
+        [snakes addObject:snake];
+    }
+    return snakes;
+}
+
 
 @end
