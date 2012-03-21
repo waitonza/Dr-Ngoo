@@ -7,21 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DrNgooDatabaseViewController.h"
 
-@class Reachability;
-@interface DrNgooAppDelegate : UIResponder <UIApplicationDelegate> {
-    }
+@interface DrNgooAppDelegate : UIResponder <UIApplicationDelegate> 
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UITabBarController *rootViewController;
 @property (strong, nonatomic) NSMutableDictionary *settingInfo;
-@property (assign, nonatomic) BOOL internetActive;
-@property (assign, nonatomic) BOOL hostActive;
-//@property (strong, nonatomic) Reachability* internetReachable;
-//@property (strong, nonatomic) Reachability* hostReachable;
 
-
-- (NSString *)dataFileDBPath;
-- (NSString *)dataFileSettingPath;
-//-(void) checkNetworkStatus:(NSNotification *)notice;
 @end

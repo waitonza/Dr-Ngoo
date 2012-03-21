@@ -217,7 +217,7 @@
         else if (row == 4) {
             if ([self.special isEqualToString:@""]) {
                 cell.detailTextLabel.text = @"ไม่ถูกเลือก";
-            } 
+            }
             else cell.detailTextLabel.text = self.special;
         }
     } else {
@@ -360,17 +360,24 @@ titleForHeaderInSection:(NSInteger)section {
             query = [string copy];
         }
     }
-    //NSString *query = [[NSString alloc] initWithFormat:@"SELECT * FROM SnakeDB WHERE Color LIKE '%@' and BodyShape LIKE '%@' and HeadShape LIKE '%@' and BodyTextile LIKE '%@' and SpecialChar LIKE '%@'",self.color,self.bodyShape,self.headShape,self.bodyTextile,self.special];
-    //query = @"SELECT * FROM SnakeDB where Color LIKE 'น้ำตาล'";
+    
     NSLog(@"%@",query);
     FMResultSet *rs = [db executeQuery:query];
     
     NSMutableArray *snakes = [[NSMutableArray alloc] init];
-    
+    NSString *snake_ico_file = @"snake_ico_";
+    NSString *snake_img_file = @"snake_img_";
+    int i = 0;
     while ([rs next]) {
-        DrNgooSnake *snake = [[DrNgooSnake alloc] initWithName:[rs stringForColumn:@"ThaiName"] andPicPath:@"thumb_s1.png"];
+        NSString *new_file_name = [snake_ico_file stringByAppendingFormat:@"%d.jpg",i];
+        NSString *new_file_img_name = [snake_img_file stringByAppendingFormat:@"%d.jpg",i];
+        
+        DrNgooSnake *snake = [[DrNgooSnake alloc] initWithName:[rs stringForColumn:@"ThaiName"] andPicPath:new_file_name];
+        snake.ident = [[rs stringForColumn:@"ID"] intValue];
         snake.snakeName = [rs stringForColumn:@"Name"];
         snake.snakeThaiName = [rs stringForColumn:@"ThaiName"];
+        snake.picPathSnake = new_file_img_name;
+        snake.snakeImage = [self getImagewithName:new_file_img_name];
         snake.science = [rs stringForColumn:@"ScienceName"];
         snake.family = [rs stringForColumn:@"Family"];
         snake.otherName = [rs stringForColumn:@"OtherName"];
@@ -385,9 +392,22 @@ titleForHeaderInSection:(NSInteger)section {
         snake.location = [rs stringForColumn:@"Location"];
         snake.distribution = [rs stringForColumn:@"Distribution"];
         [snakes addObject:snake];
+        i++;
     }
     return snakes;
 }
+
+- (UIImage *) getImagewithName:(NSString*) imagepath
+{
+    NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
+    UIImage *gimage = [UIImage imageWithContentsOfFile: [NSString stringWithFormat:@"%@/%@",docDir,imagepath]];
+    
+    //NSLog(@"%@/%@",docDir,imagepath);
+    
+    return gimage;
+}
+
 
 
 @end

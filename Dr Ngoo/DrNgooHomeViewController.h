@@ -7,9 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DrNgooDatabaseViewController.h"
+#import "MBProgressHUD.h"
+#import "ImageDownLoad.h"
 
-@interface DrNgooHomeViewController : UIViewController
+@interface DrNgooHomeViewController : UIViewController <UIAlertViewDelegate> {
+    UIAlertView* myAlert;
+    UIAlertView* updateAlert;
+    DrNgooDatabaseViewController *dataBaseController;
+    ImageDownLoad *lastObject;
+    
+    int max_count;
+    int download_finished;
+}
+
+@property (strong, nonatomic) NSMutableDictionary *settingInfo;
 
 -(IBAction)buttonPressed:(id)sender;
+-(void)saveData:(NSData*)data inFilePath:(NSString*)filePath;
 
 @end

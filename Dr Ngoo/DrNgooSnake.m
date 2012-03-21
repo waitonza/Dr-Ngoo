@@ -10,8 +10,10 @@
 
 @implementation DrNgooSnake
 
+@synthesize ident;
 @synthesize name;
 @synthesize picPath;
+@synthesize picPathSnake;
 
 @synthesize snakeName;
 @synthesize snakeThaiName;

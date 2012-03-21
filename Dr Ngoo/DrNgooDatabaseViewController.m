@@ -34,6 +34,12 @@
     return self;
 }
 
+- (NSString*)dataFile:(NSString*)filename {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    return [documentsDirectory stringByAppendingPathComponent:filename];
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -86,6 +92,18 @@
     }
 }
 
+- (UIImage *) getImagewithName:(NSString*) imagepath
+{
+    NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
+    UIImage *gimage = [UIImage imageWithContentsOfFile: [NSString stringWithFormat:@"%@/%@",docDir,imagepath]];
+    
+    //NSLog(@"%@/%@",docDir,imagepath);
+    
+    return gimage;
+}
+
+
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellTableIdentifier = @"CellTableIdentifier";
@@ -107,14 +125,14 @@
     }
 
     cell.snakeName = rowData.name;
-    cell.imageView.image = [UIImage imageNamed:rowData.picPath];
+    cell.imageView.image = [self getImagewithName:rowData.picPath];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 84.0; // Same number we used in Interface Builder
+    return 92.0; // Same number we used in Interface Builder
 }
 
 #pragma mark - Table view delegate
@@ -150,6 +168,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     childController.title = rowData.name;
     childController.snakeName = rowData.snakeName;
     childController.snakeThaiName = rowData.snakeThaiName;
+    childController.snakeImage = [self getImagewithName:rowData.picPathSnake];
     childController.science = rowData.science;
     childController.family = rowData.family;
     childController.otherName = rowData.otherName;
@@ -163,7 +182,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     childController.food = rowData.food;
     childController.location = rowData.location;
     childController.distribution = rowData.distribution;
-
+    NSLog(@"Clicked ID : %d",rowData.ident);
     [self.navigationController pushViewController:childController
                                          animated:YES];
     
@@ -214,6 +233,5 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return YES to cause the search result table view to be reloaded.
     return YES;
 }
-
 
 @end

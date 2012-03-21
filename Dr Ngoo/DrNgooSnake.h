@@ -10,8 +10,10 @@
 
 @interface DrNgooSnake : NSObject
 
+@property (assign, nonatomic) int ident;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *picPath;
+@property (strong, nonatomic) NSString *picPathSnake;
 
 @property (strong, nonatomic) NSString *snakeName;
 @property (strong, nonatomic) NSString *snakeThaiName;

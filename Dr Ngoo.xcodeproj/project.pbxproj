@@ -21,6 +21,7 @@
 		0328D564150E564300091186 /* DrNgooCheckListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0328D563150E564300091186 /* DrNgooCheckListViewController.m */; };
 		0328D56E150E76D300091186 /* OptionList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0328D56D150E76D300091186 /* OptionList.plist */; };
 		0328D570150E7DC100091186 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0328D56F150E7DC100091186 /* SystemConfiguration.framework */; };
+		035461131518DEF200B44D11 /* ImageDownLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 035461121518DEF200B44D11 /* ImageDownLoad.m */; };
 		0385584E150E4A8400CD1A51 /* FinderList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0385584D150E4A8400CD1A51 /* FinderList.plist */; };
 		03ADA33E15107E680049CE71 /* thumb_s1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ADA33D15107E680049CE71 /* thumb_s1.png */; };
 		03ADA349151082C50049CE71 /* DrNgooShowDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03ADA347151082C50049CE71 /* DrNgooShowDetailViewController.m */; };
@@ -99,8 +100,8 @@
 		0328D563150E564300091186 /* DrNgooCheckListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrNgooCheckListViewController.m; sourceTree = "<group>"; };
 		0328D56D150E76D300091186 /* OptionList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = OptionList.plist; sourceTree = "<group>"; };
 		0328D56F150E7DC100091186 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		0328D571150E7E2F00091186 /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		0328D572150E7E2F00091186 /* Reachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		035461111518DEF200B44D11 /* ImageDownLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownLoad.h; sourceTree = "<group>"; };
+		035461121518DEF200B44D11 /* ImageDownLoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownLoad.m; sourceTree = "<group>"; };
 		0385584D150E4A8400CD1A51 /* FinderList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FinderList.plist; sourceTree = "<group>"; };
 		03ADA33D15107E680049CE71 /* thumb_s1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumb_s1.png; sourceTree = "<group>"; };
 		03ADA346151082C50049CE71 /* DrNgooShowDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrNgooShowDetailViewController.h; sourceTree = "<group>"; };
@@ -313,10 +314,10 @@
 			isa = PBXGroup;
 			children = (
 				03F6918915144D0200EDC7E3 /* FMDB */,
-				0328D571150E7E2F00091186 /* Reachability.h */,
-				0328D572150E7E2F00091186 /* Reachability.m */,
 				03EFC4361513317300CAA079 /* DrNgooSnake.h */,
 				03EFC4371513317400CAA079 /* DrNgooSnake.m */,
+				035461111518DEF200B44D11 /* ImageDownLoad.h */,
+				035461121518DEF200B44D11 /* ImageDownLoad.m */,
 			);
 			name = SharedFiles;
 			sourceTree = "<group>";
@@ -532,6 +533,7 @@
 				03F6919615144D0200EDC7E3 /* FMDatabasePool.m in Sources */,
 				03F6919715144D0200EDC7E3 /* FMDatabaseQueue.m in Sources */,
 				03F6919815144D0200EDC7E3 /* FMResultSet.m in Sources */,
+				035461131518DEF200B44D11 /* ImageDownLoad.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
