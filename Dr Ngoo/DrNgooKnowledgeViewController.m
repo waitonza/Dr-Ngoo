@@ -7,12 +7,19 @@
 //
 
 #import "DrNgooKnowledgeViewController.h"
+#import "DrNgooZoomViewController.h"
 
-@interface DrNgooKnowledgeViewController ()
+@interface DrNgooKnowledgeViewController () <UIScrollViewDelegate>
+
+@property (strong, nonatomic) DrNgooZoomViewController *childController;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
 @implementation DrNgooKnowledgeViewController
+
+@synthesize scrollView;
+@synthesize childController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +34,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.scrollView.delegate = self;
+    self.scrollView.contentSize = CGSizeMake(320, 3738);
 }
 
 - (void)viewDidUnload
@@ -40,5 +49,19 @@
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+- (IBAction)performButtonZoom:(id)sender {
+    if (childController == nil) {
+        childController = [[DrNgooZoomViewController alloc] initWithNibName:@"DrNgooZoomViewController" bundle:nil];
+    }
+    
+    UIButton *button = (UIButton*)sender;
+    childController.title = [@"หน้าที่ " stringByAppendingString:button.currentTitle];
+    childController.imageView.image = button.currentImage;
+    
+    [self.navigationController pushViewController:childController
+                                         animated:YES];
+}
+
 
 @end

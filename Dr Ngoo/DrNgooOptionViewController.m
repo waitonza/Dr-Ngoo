@@ -56,7 +56,7 @@
                                    sortedArrayUsingSelector:@selector(compare:)]];
     self.keys = keyArray;
     
-    self.progVer = @"V. 0.1 Beta";
+    self.progVer = @"V. 0.1";
     
     dbVer = @"V. ";
     NSString *filePath = [self dataFileSettingPath];

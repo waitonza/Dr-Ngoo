@@ -9,13 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "DrNgooDatabaseViewController.h"
 
-@class PagingScrollViewController;
-
 @interface DrNgooAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UITabBarController *rootViewController;
 @property (strong, nonatomic) NSMutableDictionary *settingInfo;
-@property (strong, nonatomic) PagingScrollViewController *pagingScrollViewController;
 
 @end

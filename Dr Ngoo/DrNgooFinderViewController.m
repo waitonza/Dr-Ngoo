@@ -20,8 +20,10 @@
 #define kFileSettingname        @"setting.plist"
 
 @interface DrNgooFinderViewController ()
+
 @property (strong, nonatomic) DrNgooCheckListViewController *childController;
 @property (strong, nonatomic) DrNgooResultViewController *childResult;
+
 @end
 
 @implementation DrNgooFinderViewController

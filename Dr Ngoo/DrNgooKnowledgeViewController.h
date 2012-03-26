@@ -10,4 +10,6 @@
 
 @interface DrNgooKnowledgeViewController : UIViewController
 
+- (IBAction)performButtonZoom:(id)sender;
+
 @end
