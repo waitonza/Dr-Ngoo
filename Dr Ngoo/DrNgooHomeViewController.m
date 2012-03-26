@@ -199,8 +199,8 @@
         
         DrNgooSnake *snake = [[DrNgooSnake alloc] initWithName:[rs stringForColumn:@"ThaiName"] andPicPath:new_file_name];
         snake.ident = [[rs stringForColumn:@"ID"] intValue];
-        snake.snakeName = [rs stringForColumn:@"Name"];
-        snake.snakeThaiName = [rs stringForColumn:@"ThaiName"];
+        snake.snakeName = [[rs stringForColumn:@"Name"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        snake.snakeThaiName = [[rs stringForColumn:@"ThaiName"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         snake.picPathSnake = new_file_img_name;
         snake.snakeImage = [self getImagewithName:new_file_img_name];
         snake.science = [rs stringForColumn:@"ScienceName"];
@@ -341,23 +341,27 @@
     
     max_count = -1;
     download_finished = 0;
+    
+    isChecked = false;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    if ([self checkDatabase] == -1) {
-        [self operatePopupUpdating];
-    } else if ([self checkDatabase] != [self currentOnlineVersion]) {
-        [self showConfirmUpdateAlert];
+    if (!isChecked) {
+        if ([self checkDatabase] == -1) {
+            [self operatePopupUpdating];
+        } else if ([self checkDatabase] != [self currentOnlineVersion] && ([self currentOnlineVersion] != 0)) {
+            [self showConfirmUpdateAlert];
+        }
+        
+        UITabBarController *controller = [super tabBarController];
+        NSArray *controllers = [controller viewControllers];
+        
+        UINavigationController *databaseNav = [controllers objectAtIndex:2];
+        NSArray *viewController =[databaseNav viewControllers];
+        DrNgooDatabaseViewController *databaseView = [viewController objectAtIndex:0];
+        databaseView.snakes = [self readData];
+        isChecked = true;
     }
-    
-    UITabBarController *controller = [super tabBarController];
-    NSArray *controllers = [controller viewControllers];
-
-    UINavigationController *databaseNav = [controllers objectAtIndex:2];
-    NSArray *viewController =[databaseNav viewControllers];
-    DrNgooDatabaseViewController *databaseView = [viewController objectAtIndex:0];
-    databaseView.snakes = [self readData];
-     
 }
 
 - (void)viewDidUnload

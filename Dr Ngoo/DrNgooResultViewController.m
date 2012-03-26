@@ -127,6 +127,7 @@
     
     cell.snakeName = rowData.name;
     cell.imageView.image = [self getImagewithName:rowData.picPath];
+    cell.snakeNameEng = rowData.snakeName;
     
     return cell;
 }
@@ -206,8 +207,10 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
 	for (DrNgooSnake *snake in snakes)
 	{
-        if ([snake.name rangeOfString:searchText
-                              options:NSCaseInsensitiveSearch].location != NSNotFound)
+        if (([snake.name rangeOfString:searchText
+                               options:NSCaseInsensitiveSearch].location != NSNotFound) || 
+            ([snake.snakeName rangeOfString:searchText
+                                    options:NSCaseInsensitiveSearch].location != NSNotFound) )
             [filteredListContent addObject:snake];
 	}
 }

@@ -12,12 +12,14 @@
 #import "DrNgooDatabaseViewController.h"
 #import "DrNgooCureViewController.h"
 #import "DrNgooOptionViewController.h"
+#import "PagingScrollViewController.h"
 
 @implementation DrNgooAppDelegate
 
 @synthesize window = _window;
 @synthesize rootViewController;
 @synthesize settingInfo;
+@synthesize pagingScrollViewController;
 
 - (void)setupViewControllers
 {
@@ -50,13 +52,15 @@
     UINavigationController *thirdNavController = [[UINavigationController alloc] initWithRootViewController:dataBaseController];
     dataBaseController.title = @"ฐานข้อมูลงู";
     
+    
     DrNgooCureViewController *cureController = [[DrNgooCureViewController alloc] initWithNibName:@"DrNgooCureViewController" bundle:nil];
     UINavigationController *fourthNavController = [[UINavigationController alloc] initWithRootViewController:cureController];
     cureController.title = @"ปฐมพยาบาล";
     
-    DrNgooOptionViewController *optionController = [[DrNgooOptionViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    UINavigationController *fifthNavController = [[UINavigationController alloc] initWithRootViewController:optionController];
-    optionController.title = @"เพิ่มเติม";
+    //DrNgooOptionViewController *optionController = [[DrNgooOptionViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    pagingScrollViewController = [[PagingScrollViewController alloc] initWithNibName:@"MainWindow" bundle:nil];
+    UINavigationController *fifthNavController = [[UINavigationController alloc] initWithRootViewController:pagingScrollViewController];
+    pagingScrollViewController.title = @"เพิ่มเติม";
         
     
     rootViewController.viewControllers = [NSArray arrayWithObjects:firstNavController, secondNavController, thirdNavController,fourthNavController,fifthNavController, nil];

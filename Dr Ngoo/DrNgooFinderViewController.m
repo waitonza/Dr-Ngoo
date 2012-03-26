@@ -304,10 +304,7 @@ titleForHeaderInSection:(NSInteger)section {
             childController.list = self.specials;
             rowfound = [self.specials indexOfObject:self.special];
         }
-    } else {
-        NSLog(@"555");
-    }
-    
+    }     
     if (rowfound != NSNotFound) {
         childController.lastIndexPath = [NSIndexPath indexPathForRow:rowfound inSection:0];
     } else {
@@ -368,12 +365,14 @@ titleForHeaderInSection:(NSInteger)section {
     NSString *snake_ico_file = @"snake_ico_";
     NSString *snake_img_file = @"snake_img_";
     int i = 0;
-    while ([rs next]) {
-        NSString *new_file_name = [snake_ico_file stringByAppendingFormat:@"%d.jpg",i];
-        NSString *new_file_img_name = [snake_img_file stringByAppendingFormat:@"%d.jpg",i];
-        
-        DrNgooSnake *snake = [[DrNgooSnake alloc] initWithName:[rs stringForColumn:@"ThaiName"] andPicPath:new_file_name];
+    while ([rs next]) {        
+        DrNgooSnake *snake = [[DrNgooSnake alloc] init];
         snake.ident = [[rs stringForColumn:@"ID"] intValue];
+        
+        NSString *new_file_name = [snake_ico_file stringByAppendingFormat:@"%d.jpg",snake.ident];
+        NSString *new_file_img_name = [snake_img_file stringByAppendingFormat:@"%d.jpg",snake.ident];
+        snake.name = [rs stringForColumn:@"ThaiName"];
+        snake.picPath = new_file_name;
         snake.snakeName = [rs stringForColumn:@"Name"];
         snake.snakeThaiName = [rs stringForColumn:@"ThaiName"];
         snake.picPathSnake = new_file_img_name;
@@ -407,7 +406,5 @@ titleForHeaderInSection:(NSInteger)section {
     
     return gimage;
 }
-
-
 
 @end

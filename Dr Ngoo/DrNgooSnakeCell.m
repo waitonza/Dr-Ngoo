@@ -9,6 +9,9 @@
 #import "DrNgooSnakeCell.h"
 
 @implementation DrNgooSnakeCell
+
+@synthesize snakeNameEng;
+@synthesize snakeNameEngLabel;
 @synthesize snakeName;
 @synthesize image;
 @synthesize imageView;
@@ -34,7 +37,8 @@
 - (void)setSnakeName:(NSString *)n {
     if (![n isEqualToString:snakeName]) {
         snakeName = [n copy];
-        snakeNameLabel.text = snakeName;
+        NSString *str = [snakeName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        snakeNameLabel.text = str;
     }
 }
 
@@ -45,5 +49,14 @@
         imageView.image = image;
     }
 }
+
+- (void)setSnakeNameEng:(NSString *)n {
+    if (![n isEqualToString:snakeNameEng]) {
+        snakeNameEng = [n copy];
+        NSString *str = [snakeNameEng stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        snakeNameEngLabel.text = str;
+    }
+}
+
 
 @end

@@ -8,11 +8,15 @@
 
 #import "DrNgooCureViewController.h"
 
-@interface DrNgooCureViewController ()
+@interface DrNgooCureViewController () <UIScrollViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
 @implementation DrNgooCureViewController
+
+@synthesize scrollView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,10 +31,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BG.png"]];
     
-    [self.view addSubview:backgroundImage];
-    [self.view sendSubviewToBack:backgroundImage];
+    self.scrollView.delegate = self;
+    self.scrollView.contentSize = CGSizeMake(320, 2542);
+    
 }
 
 - (void)viewDidUnload

@@ -12,8 +12,10 @@
 
 @property (copy, nonatomic) NSString *snakeName;
 @property (copy, nonatomic) UIImage *image;
+@property (copy, nonatomic) NSString *snakeNameEng;
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UILabel *snakeNameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *snakeNameEngLabel;
 
 @end

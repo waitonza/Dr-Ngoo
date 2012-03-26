@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "DrNgooDatabaseViewController.h"
-#import "MBProgressHUD.h"
 #import "ImageDownLoad.h"
 
 @interface DrNgooHomeViewController : UIViewController <UIAlertViewDelegate> {
@@ -19,6 +18,8 @@
     
     int max_count;
     int download_finished;
+    
+    BOOL isChecked;
 }
 
 @property (strong, nonatomic) NSMutableDictionary *settingInfo;

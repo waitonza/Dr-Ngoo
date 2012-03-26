@@ -7,14 +7,12 @@
 //
 
 #import "DrNgooOptionViewController.h"
-#import "DrNgooCreditViewController.h"
 #import "DrNgooKnowledgeViewController.h"
 
 #define kFileSettingname        @"setting.plist"
 
 @interface DrNgooOptionViewController ()
 
-@property (strong, nonatomic) DrNgooCreditViewController *childCredit;
 @property (strong, nonatomic) DrNgooKnowledgeViewController *childKnow;
 
 @end
@@ -26,7 +24,6 @@
 @synthesize dbVer;
 @synthesize progVer;
 @synthesize childKnow;
-@synthesize childCredit;
 
 
 - (NSString *)dataFileSettingPath {
@@ -127,9 +124,8 @@
             cell.detailTextLabel.text = progVer;
         } else if (row == 1) {
             cell.detailTextLabel.text = dbVer;
-        } else if (row == 2) {
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        } 
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     } else {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
@@ -158,20 +154,14 @@ titleForHeaderInSection:(NSInteger)section {
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
-    if (childCredit == nil) {
-        childCredit = [[DrNgooCreditViewController alloc] initWithNibName:@"DrNgooCreditViewController" bundle:nil];
-    }
     if (childKnow == nil) {
         childKnow = [[DrNgooKnowledgeViewController alloc] initWithNibName:@"DrNgooKnowledgeViewController" bundle:nil];
     }
     NSUInteger section = [indexPath section];
     NSUInteger row = [indexPath row];
-    childCredit.title = @"เกี่ยวกับผู้จัดทำ";
     childKnow.title = @"ความรู้เกี่ยวกับงู";
     if (section == 0) {
-        if (row == 2) {
-            [self.navigationController pushViewController:childCredit animated:YES];
-        }
+        
     } else {
         [self.navigationController pushViewController:childKnow animated:YES];
     }
