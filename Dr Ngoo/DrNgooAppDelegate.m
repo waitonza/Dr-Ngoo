@@ -13,6 +13,7 @@
 #import "DrNgooCureViewController.h"
 #import "DrNgooOptionViewController.h"
 #import "PagingScrollViewController.h"
+#import "PageViewController.h"
 
 @implementation DrNgooAppDelegate
 
