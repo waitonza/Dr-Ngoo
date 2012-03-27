@@ -20,10 +20,12 @@
 @property (strong, nonatomic) UIImage *snakeImage;
 @property (strong, nonatomic) NSString *science;
 @property (strong, nonatomic) NSString *family;
+@property (strong, nonatomic) NSString *familyEn;
 @property (strong, nonatomic) NSString *otherName;
 @property (strong, nonatomic) NSString *geography;
 @property (strong, nonatomic) NSString *poisonous;
 @property (strong, nonatomic) NSString *serum;
+@property (strong, nonatomic) NSString *serumEn;
 @property (strong, nonatomic) NSString *color;
 @property (strong, nonatomic) NSString *size;
 @property (strong, nonatomic) NSString *characteristice;

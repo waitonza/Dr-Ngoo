@@ -205,10 +205,12 @@
         snake.snakeImage = [self getImagewithName:new_file_img_name];
         snake.science = [rs stringForColumn:@"ScienceName"];
         snake.family = [rs stringForColumn:@"Family"];
+        snake.familyEn = [rs stringForColumn:@"FamilyEN"];
         snake.otherName = [rs stringForColumn:@"OtherName"];
         snake.geography = [rs stringForColumn:@"Geography"];
         snake.poisonous = [rs stringForColumn:@"Poisonous"];
         snake.serum = [rs stringForColumn:@"Serum"];
+        snake.serumEn = [rs stringForColumn:@"SerumEN"];
         snake.color = [rs stringForColumn:@"Color"];
         snake.size = [rs stringForColumn:@"Size"];
         snake.characteristice = [rs stringForColumn:@"Characteristics"];
@@ -216,6 +218,24 @@
         snake.food = [rs stringForColumn:@"Food"];
         snake.location = [rs stringForColumn:@"Location"];
         snake.distribution = [rs stringForColumn:@"Distribution"];
+        
+        snake.family = [snake.family stringByAppendingFormat:@" (%@)",snake.familyEn];
+        NSArray *thaiArray = [snake.serum componentsSeparatedByString:@","];
+        NSArray *enArray = [snake.serumEn componentsSeparatedByString:@","];
+        NSString *temp = @"";
+        for (int i = 0; i < thaiArray.count; i++) {
+            temp = [temp stringByAppendingFormat:@"%@",[thaiArray objectAtIndex:i]];
+            temp = [temp stringByAppendingFormat:@" (%@), ",[enArray objectAtIndex:i]];
+        }
+        if ([temp length] > 2) {
+            if ([temp rangeOfString:@", " options:NSCaseInsensitiveSearch range:NSMakeRange([temp length] - 2, 2)].location != NSNotFound) {
+                NSMutableString *string = [temp mutableCopy];
+                [string replaceCharactersInRange:NSMakeRange([temp length] - 2, 2) withString:@""];
+                temp = [string copy];
+            }
+        }
+        snake.serum = temp;
+
         [snakes addObject:snake];
         i++;
     }

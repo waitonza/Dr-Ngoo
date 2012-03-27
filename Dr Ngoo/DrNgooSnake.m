@@ -20,10 +20,12 @@
 @synthesize snakeImage;
 @synthesize science;
 @synthesize family;
+@synthesize familyEn;
 @synthesize otherName;
 @synthesize geography;
 @synthesize poisonous;
 @synthesize serum;
+@synthesize serumEn;
 @synthesize color;
 @synthesize size;
 @synthesize characteristice;
