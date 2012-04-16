@@ -132,31 +132,49 @@
     
 }
 
+- (int)currentImageCount {
+    NSString *snake_ico_file = @"snake_ico_";
+    NSString *snake_img_file = @"snake_img_";
+    int count = 0;
+    for (int i = 0; i < max_count; i++) {
+        NSString *filePath_ico = [self dataFile:[snake_ico_file stringByAppendingFormat:@"%d.jpg",i]];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:filePath_ico]) {
+            count++;
+        }
+        NSString *filePath_img = [self dataFile:[snake_img_file stringByAppendingFormat:@"%d.jpg",i]];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:filePath_img]) {
+            count++;
+        }
+    }
+    return count;
+}
+
 - (void)updateImage {
     NSString *snake_ico_file = @"snake_ico_";
     NSString *snake_img_file = @"snake_img_";
-    NSString *filePath = [self dataFile:[snake_ico_file stringByAppendingFormat:@"%d.jpg",max_count-1]];
-    lastObject = nil;
-    if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-        for (int i = 0; i < max_count; i++) {
-            NSString *path = @"http://exitosus.no.de/drngoo/image/";
-            path = [path stringByAppendingFormat:@"%d",i];
-            NSString *ico_path = [path stringByAppendingFormat:@"/ico"];
-            NSString *img_path = [path stringByAppendingFormat:@"/img"];
-            
-            //icon
+    int count_file = max_count*2 - current_image_count;
+    if (count_file == 0) {
+        [self performSelectorOnMainThread:@selector(operationCompleted) withObject:nil waitUntilDone:YES];
+    }
+    for (int i = 0; i < max_count; i++) {
+        NSString *path = @"http://exitosus.no.de/drngoo/image/";
+        path = [path stringByAppendingFormat:@"%d",i];
+        NSString *ico_path = [path stringByAppendingFormat:@"/ico"];
+        NSString *img_path = [path stringByAppendingFormat:@"/img"];
+
+        NSString *filePath_ico = [self dataFile:[snake_ico_file stringByAppendingFormat:@"%d.jpg",i]];
+        if (![[NSFileManager defaultManager] fileExistsAtPath:filePath_ico]) {
             NSArray *paths =NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
             NSString *documentsDirectory = [paths objectAtIndex:0];
             NSString *filename = [snake_ico_file stringByAppendingFormat:@"%d.jpg",i];
             NSString *localFilePath = [documentsDirectory stringByAppendingPathComponent:filename];
             
             ImageDownLoad *imageDown = [[ImageDownLoad alloc]init];
-            //if (i == max_count-1)
-            //    lastObject = imageDown;
             imageDown.delegate = self;
             [imageDown startDownloadImageWithUrl:[NSURL URLWithString:ico_path] withLocalFilePath:localFilePath];
-            
-            //img
+        }
+        NSString *filePath_img = [self dataFile:[snake_img_file stringByAppendingFormat:@"%d.jpg",i]];
+        if (![[NSFileManager defaultManager] fileExistsAtPath:filePath_img]) {
             NSArray *paths1 =NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
             NSString *documentsDirectory1 = [paths1 objectAtIndex:0];
             NSString *filename1 = [snake_img_file stringByAppendingFormat:@"%d.jpg",i];
@@ -164,6 +182,7 @@
             ImageDownLoad *imageDown1 = [[ImageDownLoad alloc]init];
             imageDown1.delegate = self;
             [imageDown1 startDownloadImageWithUrl:[NSURL URLWithString:img_path] withLocalFilePath:localFilePath1];
+
         }
     }
 }
@@ -172,9 +191,11 @@
     
     [data writeToFile:filePath atomically:YES];
     download_finished++;
-    if (download_finished == max_count*2) {
+    int count_file = max_count*2 - current_image_count;
+    float percent = (float)download_finished/count_file;
+    [progressBar setProgress:percent];
+    if (download_finished == count_file) {
         [self performSelectorOnMainThread:@selector(operationCompleted) withObject:nil waitUntilDone:YES];
-        lastObject = nil;
     }
 }
     
@@ -259,7 +280,7 @@
 {
 	UIAlertView *alert = [[UIAlertView alloc] init];
 	[alert setTitle:@"มีอัพเดดใหม่"];
-	[alert setMessage:@"มีฐานข้อมูลเวอร์ชั่นใหม่ให้อัพเดด คุณต้องการอัพเดดหรือไม่"];
+	[alert setMessage:@"มีฐานข้อมูลเวอร์ชั่นใหม่ให้อัพเดด \nคุณต้องการอัพเดดหรือไม่"];
 	[alert setDelegate:self];
 	[alert addButtonWithTitle:@"อัพเดด"];
 	[alert addButtonWithTitle:@"ไม่อัพเดด"];
@@ -272,6 +293,7 @@
 	{
 		// Yes, do something
         [self operatePopupUpdating];
+        
 	}
 	else if (buttonIndex == 1)
 	{
@@ -296,18 +318,20 @@
 
 - (void) operatePopupUpdating {
     myAlert = [[UIAlertView alloc] initWithTitle:@"กำลังอัพเดดฐานข้อมูล..." message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
+    
+    progressBar = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+
+    progressBar.center = CGPointMake(screenRect.size.width / 2 - 20, screenRect.size.height/2 - 175);
+    [progressBar setProgress:0.0f];
+    [myAlert addSubview:progressBar];
+    
     [myAlert show];
-    
-    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    
-    indicator.center = CGPointMake(myAlert.bounds.size.width / 2, myAlert.bounds.size.height - 50);
-    [indicator startAnimating];
-    [myAlert addSubview:indicator];
-    
     [self operateUpdate];
-    if (max_count == -1) {
+    
+    if (max_count == 0) {
         max_count = [[self readData] count];
-    }    
+    }
     [self updateImage];
     
 }
@@ -359,7 +383,7 @@
     [self.view addSubview:backgroundImage];
     [self.view sendSubviewToBack:backgroundImage];
     
-    max_count = -1;
+    max_count = 0;
     download_finished = 0;
     
     isChecked = false;
@@ -367,7 +391,11 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     if (!isChecked) {
-        if ([self checkDatabase] == -1) {
+        if (max_count == 0) {
+            max_count = [[self readData] count];
+        }
+        current_image_count = [self currentImageCount];
+        if ([self checkDatabase] == -1 || current_image_count != max_count*2) {
             [self operatePopupUpdating];
         } else if ([self checkDatabase] != [self currentOnlineVersion] && ([self currentOnlineVersion] != 0)) {
             [self showConfirmUpdateAlert];

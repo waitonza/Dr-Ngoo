@@ -14,12 +14,14 @@
     UIAlertView* myAlert;
     UIAlertView* updateAlert;
     DrNgooDatabaseViewController *dataBaseController;
-    ImageDownLoad *lastObject;
     
+    int current_image_count;
     int max_count;
     int download_finished;
     
     BOOL isChecked;
+    UIProgressView *progressBar;
+    
 }
 
 @property (strong, nonatomic) NSMutableDictionary *settingInfo;
